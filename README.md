@@ -29,3 +29,7 @@ python3 -m http.server 8000
 ב־GitHub Pages בוחרים פרסום מהענף `main` ומתיקיית השורש `/`. משאירים את הקובץ `.nojekyll` בשורש המאגר.
 
 כתובת האתר המיועדת: https://kerenmorwak.github.io/EDHACK/
+
+## מיתוג בית הספר
+
+סמלי האוניברסיטה והפקולטה בקובץ `assets/img/tau-exact-sciences-symbols.png` נלקחו ללא שינוי מהכותרת באתר הרשמי של [בית הספר למדעי המתמטיקה](https://exact-sciences.tau.ac.il/math/), ב־17 בנובמבר 2026. כמו באתר המקור, שם בית הספר מוצג כטקסט לצד הסמלים. הצבע הלבן על הרקע הכהה מתקבל באמצעות CSS.

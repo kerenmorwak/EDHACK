@@ -332,6 +332,17 @@ html[data-contrast="high"] .ch p.t{color:#000}
 html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-motion="reduced"] *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 @media(max-width:760px){html[data-text="large"] .brand{flex-basis:100%}html[data-text="large"] .menu-btn{margin-inline-start:0}.access-trigger{bottom:10px;left:10px;padding:6px 12px}.access-options{grid-template-columns:minmax(0,1fr)}}
 
+
+/* מיתוג בית הספר לפי האתר הרשמי: סמלי האוניברסיטה לצד שם היחידה */
+.school-brand{display:flex;align-items:center;gap:12px;width:fit-content;max-width:100%;margin-bottom:18px;color:var(--ivory);text-decoration:none}
+.school-brand img{display:block;width:142px;height:auto;flex:none;filter:invert(1)}
+.school-brand-text{font-size:.875rem;line-height:1.45;min-width:0}
+.school-brand-text strong{display:block;font-size:.9375rem;font-weight:600}
+.school-brand-text span{display:block}
+.footer-brand{margin-bottom:0}
+.organizer-logo{display:block;width:142px;max-width:100%;height:auto;margin-top:16px;filter:invert(1)}
+@media(max-width:760px){.school-brand{gap:10px}.school-brand img{width:96px}.school-brand-text{font-size:.75rem}.school-brand-text strong{font-size:.8125rem}.organizer-logo{width:112px}}
+
 </style>
 </head>
 <body>
@@ -356,7 +367,10 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 
 <section class="hero">
   <div class="wrap">
-    <img class="hero-logo" src="assets/img/faculty-he-light.png" alt="הפקולטה למדעים מדויקים ע״ש ריימונד ובברלי סאקלר, אוניברסיטת תל אביב" width="1016" height="192">
+    <a class="school-brand" href="https://exact-sciences.tau.ac.il/math/" aria-label="בית הספר למדעי המתמטיקה, אוניברסיטת תל אביב">
+      <img src="assets/img/tau-exact-sciences-symbols.png" alt="" width="212" height="72">
+      <span class="school-brand-text"><strong>בית הספר למדעי המתמטיקה</strong><span>אוניברסיטת תל אביב</span></span>
+    </a>
     <h1><span class="wordmark">ED<span>HACK</span></span> <span class="event-year">2027</span></h1>
     <p class="what">האקתון להוראת המדעים המדויקים</p>
     <p class="pitch">יומיים לבנות כלי להוראת מתמטיקה, מדעי המחשב, פיזיקה, כימיה ועוד, ולנסות אותו עם מורים, תלמידים וסטודנטים.</p>
@@ -492,7 +506,8 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
     <div class="cols3">
       <div>
         <h3>מארגנים</h3>
-        <p><b>פרופ׳ שירי ארטשטיין</b><br>סגנית לענייני הוראה</p>
+        <p><b>בית הספר למדעי המתמטיקה</b><br>אוניברסיטת תל אביב</p>
+        <img class="organizer-logo" src="assets/img/tau-exact-sciences-symbols.png" alt="סמלי אוניברסיטת תל אביב והפקולטה למדעים מדויקים" width="212" height="72">
       </div>
       <div>
         <h3>מנטורים</h3>
@@ -548,7 +563,10 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 
 <footer>
   <div class="wrap">
-    <img class="footer-logo" src="assets/img/faculty-he-light.png" alt="הפקולטה למדעים מדויקים ע״ש ריימונד ובברלי סאקלר, אוניברסיטת תל אביב" width="1016" height="192">
+    <a class="school-brand footer-brand" href="https://exact-sciences.tau.ac.il/math/" aria-label="בית הספר למדעי המתמטיקה, אוניברסיטת תל אביב">
+      <img src="assets/img/tau-exact-sciences-symbols.png" alt="" width="212" height="72">
+      <span class="school-brand-text"><strong>בית הספר למדעי המתמטיקה</strong><span>אוניברסיטת תל אביב</span></span>
+    </a>
     <button type="button" data-open-accessibility>אפשרויות נגישות</button>
   </div>
 </footer>
