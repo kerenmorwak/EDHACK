@@ -433,7 +433,8 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
 
 
 /* Bilingual navigation and direction-aware reading layout. */
-.language-btn{background:transparent;color:var(--ivory);border:1px solid #f2f5ec77;border-radius:8px;min-height:40px;padding:6px 12px;font:500 .875rem var(--font);cursor:pointer}
+.language-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:transparent;color:var(--ivory);border:1px solid #f2f5ec77;border-radius:8px;min-height:40px;padding:6px 12px;font:500 .875rem var(--font);cursor:pointer}
+.language-btn svg{width:16px;height:16px;flex:none}
 .language-btn:hover{background:#ffffff14}
 .form-language-note{font-size:.875rem;color:var(--muted);margin-top:12px}
 html[lang="en"] .hero h1,html[lang="en"] .band dt,html[lang="en"] .tl time,html[lang="en"] .tl .t{text-align:left}
@@ -459,7 +460,7 @@ html[lang="en"] .ch h3{font-size:clamp(26px,2.5vw,36px)}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="EDHACK, לראש העמוד"><svg class="sigma-e" viewBox="0 0 68 72" aria-hidden="true" focusable="false"><path d="M59 7H10L24 36 10 65H59M24 36H45"/></svg>D<span>HACK</span></a>
-    <button type="button" class="language-btn" id="languageBtn" lang="en" dir="ltr" aria-label="Switch to English">English</button>
+    <button type="button" class="language-btn" id="languageBtn" lang="en" dir="ltr" aria-label="Switch to English"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/></svg><span id="languageLabel">English</span></button>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">תפריט</button>
     <nav class="nav" id="nav" aria-label="ניווט ראשי">
       <a href="#challenges">האתגרים</a>
@@ -530,7 +531,7 @@ html[lang="en"] .ch h3{font-size:clamp(26px,2.5vw,36px)}
 <section class="sec challenges" id="challenges">
   <div class="wrap">
     <div class="h2"><h2>שלושה אתגרים. בוחרים אחד.</h2></div>
-    <p class="lead challenge-intro">המתמטיקה במרכז, והתחום פתוח: מתמטיקה, כולל סטטיסטיקה, או שימושי המתמטיקה במדעי המחשב, בפיזיקה, באסטרונומיה, בכימיה ובמדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.</p>
+    <p class="lead challenge-intro">המתמטיקה במרכז, והתחום פתוח: מתמטיקה עצמה, או שימושיה במדעי המחשב, בפיזיקה, באסטרונומיה, בכימיה ובמדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.</p>
 
     <div class="chs">
       <article class="ch flip-card" id="c1">
@@ -802,7 +803,7 @@ html[lang="en"] .ch h3{font-size:clamp(26px,2.5vw,36px)}
     "לשנייה":"per second",
     "אחוזים":"percent",
     "שלושה אתגרים. בוחרים אחד.":"Three challenges. Choose one.",
-    "המתמטיקה במרכז, והתחום פתוח: מתמטיקה, כולל סטטיסטיקה, או שימושי המתמטיקה במדעי המחשב, בפיזיקה, באסטרונומיה, בכימיה ובמדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.":"Mathematics is at the heart of it. Explore mathematics, including statistics, or its applications in computer science, physics, astronomy, chemistry, and earth sciences. Each team chooses a challenge, a field, and an audience.",
+    "המתמטיקה במרכז, והתחום פתוח: מתמטיקה עצמה, או שימושיה במדעי המחשב, בפיזיקה, באסטרונומיה, בכימיה ובמדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.":"Mathematics is at the heart of it. Explore mathematics itself, or its applications in computer science, physics, astronomy, chemistry, and earth sciences. Each team chooses a challenge, a field, and an audience.",
     "אתגר 1":"Challenge 1",
     "אתגר 2":"Challenge 2",
     "אתגר 3":"Challenge 3",
@@ -965,7 +966,7 @@ html[lang="en"] .ch h3{font-size:clamp(26px,2.5vw,36px)}
     translationAttributes.forEach(function(item){if(item.el.isConnected)item.el.setAttribute(item.attr,tr(item.source));});
     document.title=tr("EDHACK | האקתון להוראת המתמטיקה ושימושיה");
     document.querySelector('meta[name="description"]').content=tr("EDHACK, האקתון להוראת המתמטיקה ושימושיה של בית הספר למדעי המתמטיקה באוניברסיטת תל אביב. שלושה אתגרים, יומיים, ופרסים לזוכים.");
-    var button=document.getElementById("languageBtn");button.textContent=language==="he"?"English":"עברית";button.lang=language==="he"?"en":"he";button.dir=language==="he"?"ltr":"rtl";button.setAttribute("aria-label",language==="he"?"Switch to English":"מעבר לעברית");
+    var button=document.getElementById("languageBtn");document.getElementById("languageLabel").textContent=language==="he"?"English":"עברית";button.lang=language==="he"?"en":"he";button.dir=language==="he"?"ltr":"rtl";button.setAttribute("aria-label",language==="he"?"Switch to English":"מעבר לעברית");
     document.getElementById("formLanguageNote").hidden=language!=="en";
     refreshLocalizedUI();
     if(save){try{localStorage.setItem("edhack-language",language);}catch(error){}var address=new URL(location.href);address.searchParams.set("lang",language);history.replaceState(null,"",address);}
