@@ -48,7 +48,7 @@ window.EDHACK = {
   --muted:#52636A;
   --line:#D5DBD6;
   --font:"Rubik","Arial Hebrew","Noto Sans Hebrew",Arial,sans-serif;
-  --wrap:1100px;
+  --wrap:1450px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
@@ -60,7 +60,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);f
 button,input{font-family:var(--font)}
 a{color:var(--deep);text-underline-offset:3px}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:22px}
+.wrap{width:90%;max-width:var(--wrap);margin-inline:auto}
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
 .nums{font-variant-numeric:tabular-nums}
 p{margin:0}
@@ -85,7 +85,7 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .menu-btn{display:none;background:none;border:1.5px solid #f2f5ec77;color:var(--ivory);border-radius:8px;min-height:40px;padding:6px 12px;font-weight:600;font-size:0.9375rem;cursor:pointer}
 
 /* פתיח */
-.hero{background-color:var(--deep);background-image:radial-gradient(#ffffff12 1.2px,transparent 1.3px);background-size:26px 26px;color:var(--ivory);padding-block:56px 64px}
+.hero{background-color:var(--deep);background-image:radial-gradient(#ffffff24 1.2px,transparent 1.3px);background-size:26px 26px;color:var(--ivory);padding-block:56px 64px}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
 .hero-logo{display:block;height:62px;width:auto;max-width:100%;margin-bottom:22px;opacity:.95}
 .footer-logo{display:block;height:44px;width:auto;max-width:70%;opacity:.9}
@@ -133,7 +133,7 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .sec{padding-block:76px}
 .sec-white{background:var(--card)}
 .sec-deep{background:var(--deep);color:var(--ivory)}
-.sec-deeper{background-color:var(--deeper);background-image:radial-gradient(#ffffff0d 1.2px,transparent 1.3px);background-size:26px 26px;color:var(--ivory)}
+.sec-deeper{background-color:var(--deeper);background-image:radial-gradient(#ffffff18 1.2px,transparent 1.3px);background-size:26px 26px;color:var(--ivory)}
 .sec-deep a,.sec-deeper a{color:var(--accent)}
 .h2{margin-bottom:12px}
 .h2 h2{font-weight:600;font-size:clamp(32px,4.4vw,48px);line-height:1.12}
@@ -202,6 +202,10 @@ dialog::backdrop{background:#092a36d9}
 .reg dl div:first-child{border-top:0;padding-top:0}
 .reg dl div:last-child{padding-bottom:0}
 .reg dd{margin:0;font-weight:600;text-align:end}
+.reg-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,88px);align-items:start}
+.reg-intro .who{max-width:34em}
+.reg-action{padding:30px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.reg-instructions{margin-top:18px;max-width:36em}
 
 .faq{max-width:780px}
 .faq details{background:var(--card);border-radius:12px;margin-top:10px;padding-inline:22px}
@@ -224,6 +228,9 @@ footer button[aria-pressed="true"]{background:var(--accent);color:var(--deeper);
   .chs,.two,.row3{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:760px){
+  .wrap{width:calc(100% - 32px)}
+  .reg-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .reg-action{padding:22px}
   body{font-size:1.03125rem}
   .menu-btn{display:inline-flex;align-items:center;margin-inline-start:auto}
   .nav{display:none;position:absolute;inset-inline:0;top:100%;background:var(--deeper);flex-direction:column;gap:0;padding:6px 22px 14px;border-top:1px solid #f2f5ec2e;margin:0}
@@ -268,9 +275,9 @@ footer button[aria-pressed="true"]{background:var(--accent);color:var(--deeper);
 .hero h1 .event-year{font-size:.58em;font-weight:500;color:var(--ivory);letter-spacing:-.04em}
 .hero .what{margin-top:12px}
 .hero .pitch{max-width:47em;margin-top:12px}
-.challenges{background:var(--deep);color:var(--ivory);padding-block:24px 44px}
+.challenges{background-color:var(--deep);background-image:radial-gradient(#ffffff20 1.2px,transparent 1.3px);background-size:26px 26px;color:var(--ivory);padding-block:24px 44px}
 .challenges .h2 h2{font-size:2.25rem}
-.challenges .lead{color:var(--ivory);font-size:1.0625rem;max-width:58em;margin-bottom:24px}
+.challenges .lead{color:var(--ivory);font-size:1.0625rem;max-width:48em;margin-bottom:24px}
 .chs{gap:22px}
 .ch{background:var(--ivory);color:var(--deep);border:1px solid #d4e86a66;border-top:6px solid var(--accent);box-shadow:0 0 30px #d4e86117;padding:22px 24px 26px}
 .ch .num{width:40px;height:40px;font-size:1.375rem}
@@ -320,7 +327,7 @@ html[data-text="large"] .nav{gap:16px}
 html[data-text="large"] .chs{grid-template-columns:minmax(0,1fr)}
 html[data-links="underlined"] a{text-decoration:underline!important;text-decoration-thickness:2px;text-underline-offset:5px}
 html[data-contrast="high"]{--ink:#000;--paper:#fff;--card:#fff;--deep:#000;--deeper:#000;--accent:#ffed00;--ivory:#fff;--muted:#222;--line:#555}
-html[data-contrast="high"] .hero,html[data-contrast="high"] .sec-deeper{background-image:none}
+html[data-contrast="high"] .hero,html[data-contrast="high"] .challenges,html[data-contrast="high"] .sec-deeper{background-image:none}
 html[data-contrast="high"] .ch p.t{color:#000}
 html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-motion="reduced"] *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 @media(max-width:760px){html[data-text="large"] .brand{flex-basis:100%}html[data-text="large"] .menu-btn{margin-inline-start:0}.access-trigger{bottom:10px;left:10px;padding:6px 12px}.access-options{grid-template-columns:minmax(0,1fr)}}
@@ -413,21 +420,25 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 </section>
 
 <section class="sec sec-white reg" id="register">
-  <div class="wrap">
-    <div class="h2"><h2>הרשמה</h2></div>
-    <p class="status" data-reg-pill><i></i><span data-reg-status-long>ההרשמה טרם נפתחה</span></p>
-    <p class="who" style="margin-top:18px">ההשתתפות פתוחה לכולם: סטודנטים, אנשי סגל, מורים ועוד.</p>
-    <p class="who">הכלים עצמם מיועדים ללומדים ולמלמדים, מבית הספר היסודי ועד האוניברסיטה.</p>
-    <p style="margin-top:16px;max-width:36em">כל משתתפ.ת ממלא.ת טופס. יש לכם צוות? תאמו מראש שם צוות משותף. אין צוות? ספרו לנו במה תרצו לתרום ואנחנו נדאג לכם לציוות.</p>
-    <p class="cta" data-reg-cta hidden><a class="btn btn-deep" data-register-direct href="#register">להרשמה</a></p>
-    <p id="contact" style="margin-top:22px">יצירת קשר: <span data-detail="contact"><span class="tb">TB</span></span></p>
+  <div class="wrap reg-grid">
+    <div class="reg-intro">
+      <div class="h2"><h2>הרשמה</h2></div>
+      <p class="who" style="margin-top:18px">ההשתתפות פתוחה לכולם: סטודנטים, אנשי סגל, מורים ועוד.</p>
+      <p class="who">הכלים עצמם מיועדים ללומדים ולמלמדים, מבית הספר היסודי ועד האוניברסיטה.</p>
+      <p id="contact" style="margin-top:22px">יצירת קשר: <span data-detail="contact"><span class="tb">TB</span></span></p>
+    </div>
+    <div class="reg-action">
+      <p class="status" data-reg-pill><i></i><span data-reg-status-long>ההרשמה טרם נפתחה</span></p>
+      <p class="reg-instructions">כל משתתפ.ת ממלא.ת טופס. יש לכם צוות? תאמו מראש שם צוות משותף. אין צוות? ספרו לנו במה תרצו לתרום ואנחנו נדאג לכם לציוות.</p>
+      <p class="cta" data-reg-cta hidden><a class="btn btn-deep" data-register-direct href="#register">להרשמה</a></p>
+    </div>
   </div>
 </section>
 
 <section class="sec sec-deeper example" aria-labelledby="exampleTitle">
   <div class="wrap two">
     <div>
-      <div class="h2"><h2 id="exampleTitle">רעיון מדעי. כלי שאפשר לנסות.</h2></div>
+      <div class="h2"><h2 id="exampleTitle">המחשה של רעיון מדעי</h2></div>
       <p class="lead">כך יכולה להיראות המחשה אינטראקטיבית: משנים את התנאים, רואים מה קורה ומבינים את הרעיון.</p>
       <p>הדוגמה הזו מציגה שיווי משקל כימי. איזה רעיון תרצו להפוך לכלי למידה?</p>
     </div>
