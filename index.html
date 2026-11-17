@@ -351,6 +351,7 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 .galton-stats #ballCount{color:var(--accent)}
 .normal-legend{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:400}
 .normal-legend i{display:block;width:24px;height:2px;background:#fff}
+.galton-progress{margin-top:6px;font-size:.8125rem;color:#f2f5ecd9}
 </style>
 </head>
 <body>
@@ -469,9 +470,10 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
       <div class="eqn" dir="ltr">n = 10, &nbsp;p = ½</div>
       <canvas id="eq" width="600" height="340" role="img" aria-label="לוח גלטון: כדורים נופלים בין יתדות, פונים ימינה או שמאלה באקראי, ונערמים בצורת פעמון" aria-describedby="galtonCaption"></canvas>
       <div class="galton-stats">
-        <span><span id="ballCount" class="nums">0</span> כדורים</span>
+        <span><span id="ballCount" class="nums">250</span> כדורים בסך הכל</span>
         <span class="normal-legend"><i aria-hidden="true"></i>קירוב נורמלי</span>
       </div>
+      <p id="ballProgress" class="galton-progress">נחתו 0 מתוך 250</p>
       <div class="ctl">
         <button type="button" id="addBalls">הוסיפו 100 כדורים</button>
         <button type="button" id="resetGalton">התחילו מחדש</button>
@@ -648,9 +650,11 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
   cv.width = W*dpr; cv.height = H*dpr; ctx.scale(dpr, dpr);
   var IVORY = "#F2F5EC", ACCENT = "#D4E86A";
-  var bins = Array(ROWS+1).fill(0), active = [], pending = 0, landed = 0;
+  var bins = Array(ROWS+1).fill(0), plannedBins = Array(ROWS+1).fill(0);
+  var active = [], pending = [], landed = 0, total = 0, axisMax = 25;
   var raf = null, lastTime = null, launchClock = 0;
   var counter = document.getElementById("ballCount");
+  var progress = document.getElementById("ballProgress");
   var addBtn = document.getElementById("addBalls"), resetBtn = document.getElementById("resetGalton");
   var root = document.documentElement, btn = document.getElementById("motionBtn");
   var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -670,19 +674,36 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
     return Math.exp(-0.5*Math.pow((x-ROWS/2)/sigma,2))/(sigma*Math.sqrt(2*Math.PI));
   }
   function chartScale(){
-    var peak = Math.max.apply(null,bins.concat([landed*normalDensity(5),1]));
-    return 86/(Math.ceil(peak/25)*25);
+    return 86/axisMax;
+  }
+  function queueBalls(count){
+    for(var i=0;i<count;i++){
+      var ball = makeBall();pending.push(ball);plannedBins[ball.bin]++;
+    }
+    total += count;
+    // Reserve space for the whole requested batch before any ball falls.
+    // A larger batch may widen the labeled axis once, never mid-animation.
+    var peak = Math.max.apply(null,plannedBins.concat([total*normalDensity(5)]));
+    axisMax = Math.max(axisMax,Math.ceil(peak*1.1/25)*25);
+    show();
   }
   function land(ball){ bins[ball.bin]++; landed++; }
   function show(){
-    counter.textContent = landed.toLocaleString("he-IL");
+    counter.textContent = total.toLocaleString("he-IL");
+    progress.textContent = "נחתו "+landed.toLocaleString("he-IL")+" מתוך "+total.toLocaleString("he-IL");
     // This description also exposes the nonvisual result without noisy live announcements.
-    cv.setAttribute("aria-description",landed+" כדורים. מספר הכדורים בתאים, משמאל לימין: "+bins.join(", ")+".");
+    cv.setAttribute("aria-description","נחתו "+landed+" מתוך "+total+" כדורים. מספר הכדורים בתאים, משמאל לימין: "+bins.join(", ")+".");
   }
   function draw(){
     ctx.clearRect(0,0,W,H);
     var scale = chartScale();
     ctx.lineWidth = 1;
+    ctx.font = "12px Arial";ctx.textAlign = "right";
+    for(var tick=0;tick<=2;tick++){
+      var tickValue = axisMax*tick/2, tickY = BASE-tickValue*scale;
+      ctx.fillStyle = IVORY;ctx.fillText(String(tickValue),70,tickY+4);
+      ctx.strokeStyle = "#f2f5ec22";ctx.beginPath();ctx.moveTo(80,tickY);ctx.lineTo(520,tickY);ctx.stroke();
+    }
     for(var i=0;i<=ROWS;i++){
       var x = W/2+(i-ROWS/2)*DX;
       ctx.fillStyle = "#ffffff08";
@@ -722,7 +743,7 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
     });
   }
   function startAnimation(){
-    if(!reduced && raf===null && (pending || active.length)){
+    if(!reduced && raf===null && (pending.length || active.length)){
       lastTime = null;raf = requestAnimationFrame(loop);
     }
   }
@@ -730,32 +751,33 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
     raf = null;
     var delta = lastTime===null ? 0 : Math.min(time-lastTime,50);
     lastTime = time;launchClock += delta;
-    while(pending>0 && launchClock>=INTERVAL){
-      active.push(makeBall());pending--;launchClock-=INTERVAL;
+    while(pending.length>0 && launchClock>=INTERVAL){
+      active.push(pending.shift());launchClock-=INTERVAL;
     }
-    if(!pending)launchClock=0;
+    if(!pending.length)launchClock=0;
     active = active.filter(function(ball){
       ball.age += delta;
       if(ball.age>=ball.points.length*SEGMENT){land(ball);return false;}
       return true;
     });
     show();draw();
-    if(pending || active.length)raf=requestAnimationFrame(loop);
+    if(pending.length || active.length)raf=requestAnimationFrame(loop);
   }
   function settle(){
     active.forEach(land);active=[];
-    while(pending>0){land(makeBall());pending--;}
+    pending.forEach(land);pending=[];
     launchClock=0;show();draw();
   }
   function reset(){
     if(raf!==null)cancelAnimationFrame(raf);
     raf=null;lastTime=null;launchClock=INTERVAL;
-    bins=Array(ROWS+1).fill(0);active=[];pending=START;landed=0;
+    bins=Array(ROWS+1).fill(0);plannedBins=Array(ROWS+1).fill(0);
+    active=[];pending=[];landed=0;total=0;axisMax=25;queueBalls(START);
     if(reduced)settle();else{show();draw();startAnimation();}
   }
   addBtn.addEventListener("click",function(){
-    pending+=ADD;
-    if(reduced)settle();else startAnimation();
+    queueBalls(ADD);
+    if(reduced)settle();else{draw();startAnimation();}
   });
   resetBtn.addEventListener("click",reset);
   function applyMotion(){
