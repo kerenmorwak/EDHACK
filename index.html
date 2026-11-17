@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDHACK האקתון להוראת המדעים המדויקים</title>
+<meta name="description" content="EDHACK, האקתון להוראת המדעים המדויקים של הפקולטה למדעים מדויקים באוניברסיטת תל אביב. שלושה אתגרים, יומיים, ופיילוט אמיתי לזוכים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+/* ==========================================================================
+   עדכון פרטים: כל מה שעוד לא נקבע מרוכז כאן.
+   1. כשיש טופס הרשמה, הדביקו את קישור המענה שלו ב-registrationUrl.
+      כל כפתורי ההרשמה באתר יתחברו אליו אוטומטית.
+   2. כשפרט נקבע, החליפו את "TB" בערך עצמו. הוא יתעדכן בכל מקום בעמוד
+      בלי צורך לגעת בשאר הקוד.
+   ========================================================================== */
+window.EDHACK = {
+  registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLScCgC3PpxGtc8EPHeBHQVWCkF48GcOA_ruiMgRqzDbH_V2U6Q/viewform",
+
+  details: {
+    date:          { label: "תאריך האירוע",              value: "TB" },
+    location:      { label: "מיקום והוראות הגעה",         value: "TB" },
+    mentors:       { label: "שמות המנטורים",              value: "TB" },
+    judges:        { label: "שמות השופטים",               value: "TB" },
+    pilotHosts:    { label: "המוסדות שיארחו את הפיילוט",  value: "TB" },
+    pilotTerms:    { label: "היקף, משך וליווי הפיילוט",   value: "TB" },
+    overnight:     { label: "סידורי השהייה בלילה",        value: "TB" },
+    accessibility: { label: "סידורי נגישות",              value: "TB" },
+    contact:       { label: "פרטי קשר",                   value: "TB" }
+  }
+};
+</script>
+
+<style>
+:root{
+  /* רעיון הפריסה: כחול נפט וליים, גופן אחד בכל העמוד, כותרות כבדות, פס עובדות זהוב וכרטיסים */
+  --ink:#10242B;
+  --paper:#F1F4EF;
+  --card:#FFFFFF;
+  --deep:#0E3A4A;
+  --deeper:#092A36;
+  --accent:#D4E86A;
+  --accent-dk:#0E3A4A;
+  --ivory:#F2F5EC;
+  --muted:#52636A;
+  --line:#D5DBD6;
+  --font:"Rubik","Arial Hebrew","Noto Sans Hebrew",Arial,sans-serif;
+  --wrap:1100px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+html[data-motion="reduced"]{scroll-behavior:auto}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65}
+button,input{font-family:var(--font)}
+a{color:var(--deep);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:22px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.nums{font-variant-numeric:tabular-nums}
+p{margin:0}
+h1,h2,h3{margin:0;text-wrap:balance}
+
+.tb{display:inline-block;direction:ltr;font-weight:700;font-size:.74em;letter-spacing:.06em;padding:0 .55em;border:1.5px solid currentColor;border-radius:5px;line-height:1.55;vertical-align:.1em;opacity:.85}
+
+/* סרגל עליון */
+.top{position:sticky;top:0;z-index:20;background:var(--deeper);color:var(--ivory);border-bottom:1px solid #ffffff14}
+.top .wrap{display:flex;align-items:center;gap:18px;min-height:60px}
+.brand{font-weight:700;font-size:24px;letter-spacing:.01em;color:var(--ivory);text-decoration:none;direction:ltr}
+.brand span{color:var(--accent)}
+.nav{display:flex;gap:26px;margin-inline-start:auto}
+.nav a{color:var(--ivory);text-decoration:none;font-size:15.5px;font-weight:500;padding:8px 0}
+.nav a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 26px;border-radius:8px;font-weight:700;font-size:17px;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-accent{background:var(--accent);color:var(--deeper)}
+.btn-accent:hover{background:#e3f191}
+.btn-line{border-color:#f2f5ec99;color:var(--ivory);background:transparent}
+.btn-line:hover{border-color:var(--ivory);background:#ffffff10}
+.top .btn{min-height:40px;padding:6px 18px;font-size:15.5px}
+.menu-btn{display:none;background:none;border:1.5px solid #f2f5ec77;color:var(--ivory);border-radius:8px;min-height:40px;padding:6px 12px;font-weight:600;font-size:15px;cursor:pointer}
+
+/* פתיח */
+.hero{background-color:var(--deep);background-image:radial-gradient(#ffffff12 1.2px,transparent 1.3px);background-size:26px 26px;color:var(--ivory);padding-block:56px 64px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
+.hero-logo{display:block;height:62px;width:auto;max-width:100%;margin-bottom:22px;opacity:.95}
+.footer-logo{display:block;height:44px;width:auto;max-width:70%;opacity:.9}
+.hero h1{font-weight:700;font-size:clamp(72px,9.4vw,124px);line-height:.95;letter-spacing:-.01em;direction:ltr;text-align:right;margin-top:10px}
+.hero h1 span{color:var(--accent)}
+.what{font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.2;margin-top:10px}
+.pitch{margin-top:16px;max-width:31em;font-size:18px;color:#f2f5ece6}
+.prize{margin-top:20px;padding:14px 18px;background:#ffffff12;border-inline-start:4px solid var(--accent);border-radius:8px;max-width:31em;font-size:17px;line-height:1.55}
+.prize b{color:var(--accent);font-weight:700;margin-inline-end:6px}
+.tracks-label{margin-top:24px;font-size:16px;font-weight:600;color:var(--accent)}
+.tracks{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--accent);border-radius:10px;overflow:hidden}
+.tracks li + li{border-inline-start:1.5px solid var(--accent)}
+.tracks a{display:flex;flex-direction:column;gap:2px;height:100%;color:var(--ivory);text-decoration:none;font-size:16.5px;font-weight:600;line-height:1.3;padding:11px 14px}
+.tracks a:hover{background:#ffffff14}
+.tracks small{font-size:13.5px;font-weight:500;color:var(--accent)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
+.when{font-size:15.5px;margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 24px}
+
+.fig{margin:0;background:var(--deeper);border:1px solid #d4e86a55;border-radius:14px;padding:20px 22px 22px;box-shadow:0 18px 40px #00000033}
+.fig .eqn{font-weight:700;font-size:24px;direction:ltr;text-align:center;letter-spacing:.06em;color:var(--accent)}
+.fig canvas{display:block;width:100%;height:auto;aspect-ratio:600/340;border-radius:8px;background:#ffffff08;margin-top:12px}
+.fig .stats{display:flex;justify-content:space-between;gap:16px;margin-top:14px;direction:ltr;font-weight:600;font-size:28px;line-height:1}
+.fig .stats > span{display:flex;align-items:center;gap:8px}
+.fig .stats i{width:12px;height:12px;border-radius:50%;display:inline-block;background:var(--ivory)}
+.fig .stats .b i{background:var(--accent)}
+.fig .stats .b{color:var(--accent)}
+.fig .bar{height:6px;border-radius:3px;overflow:hidden;background:var(--accent);margin-top:10px;direction:ltr}
+.fig .bar div{height:100%;background:var(--ivory);width:40%}
+.fig .ctl{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.fig .ctl button{background:none;border:1.5px solid #f2f5ec88;color:var(--ivory);border-radius:8px;min-height:42px;padding:6px 16px;font-weight:600;font-size:15px;cursor:pointer}
+.fig .ctl button:first-child{background:var(--accent);border-color:var(--accent);color:var(--deeper)}
+.fig .ctl button:disabled{opacity:.45;cursor:default}
+.fig figcaption{font-size:15px;line-height:1.6;margin-top:14px;color:#f2f5ecd9}
+
+/* פס עובדות */
+.band{background:var(--accent);color:var(--deeper)}
+.band dl{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.band dl > div{padding:22px 20px;border-inline-start:1.5px solid #092a3626}
+.band dl > div:first-child{border-inline-start:0;padding-inline-start:0}
+.band dt{font-weight:700;font-size:44px;line-height:1;direction:ltr;text-align:right}
+.band dt.he{direction:rtl;font-size:34px;line-height:1.3}
+.band dd{margin:6px 0 0;font-size:15.5px;font-weight:500}
+
+/* מקטעים */
+.sec{padding-block:76px}
+.sec-white{background:var(--card)}
+.sec-deep{background:var(--deep);color:var(--ivory)}
+.sec-deeper{background-color:var(--deeper);background-image:radial-gradient(#ffffff0d 1.2px,transparent 1.3px);background-size:26px 26px;color:var(--ivory)}
+.sec-deep a,.sec-deeper a{color:var(--accent)}
+.h2{margin-bottom:12px}
+.h2 h2{font-weight:600;font-size:clamp(32px,4.4vw,48px);line-height:1.12}
+.lead{font-size:19px;max-width:36em;margin-bottom:34px;color:var(--muted)}
+.sec-deep .lead,.sec-deeper .lead{color:#f2f5ece0}
+
+/* אתגרים */
+.chs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ch{background:var(--deep);color:var(--ivory);border-radius:14px;padding:26px 26px 30px;border-top:6px solid var(--accent);scroll-margin-top:84px}
+.ch .num{width:50px;height:50px;border-radius:50%;background:var(--accent);color:var(--deeper);font-weight:700;font-size:26px;display:flex;align-items:center;justify-content:center}
+.ch h3{font-weight:600;font-size:28px;line-height:1.15;margin-top:18px}
+.ch .kind{font-weight:500;font-size:16.5px;line-height:1.45;margin-top:8px;color:var(--accent)}
+.ch p.t{margin-top:12px;font-size:16.5px;color:#f2f5ece0}
+
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}
+.cell{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border:1px solid #d4e86a66;border-radius:12px;background:#ffffff0d;font-size:16.5px;line-height:1.4}
+
+dialog{border:0;border-radius:16px;padding:0;width:100%;max-width:min(760px,calc(100vw - 24px));max-height:calc(100vh - 24px);background:var(--paper);color:var(--ink)}
+dialog::backdrop{background:#092a36d9}
+.dlg-head{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;background:var(--deep);color:var(--ivory)}
+.dlg-head h2{font-weight:600;font-size:24px}
+.dlg-head button{background:none;border:1.5px solid #f2f5ec88;color:var(--ivory);border-radius:8px;min-height:40px;padding:6px 14px;font-weight:600;font-size:15px;cursor:pointer}
+.dlg-body{padding:18px 22px 26px}
+.dlg-body .day:first-of-type{margin-top:18px}
+.who{font-size:19px;max-width:38em}
+.who + .who{margin-top:6px;color:var(--muted)}
+
+.two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;align-items:center}
+.box{padding:22px 24px;border:1px solid #d4e86a66;border-radius:12px;background:#ffffff0d}
+.list{margin:0;padding:0;list-style:none}
+.list li{padding:10px 0;border-top:1px solid #f2f5ec2e;font-size:16.5px;line-height:1.5;display:flex;justify-content:space-between;gap:16px}
+.list li:first-child{border-top:0;padding-top:0}
+.list li:last-child{padding-bottom:0}
+
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.way{background:var(--paper);border-radius:14px;padding:24px 26px;scroll-margin-top:84px}
+.way h3{font-weight:600;font-size:28px;line-height:1.1}
+.way .whois{font-weight:600;color:var(--accent-dk);margin-top:4px}
+.way p{font-size:16.5px;margin-top:10px}
+.way .ask{font-size:15px;color:var(--muted)}
+
+.day{margin-top:30px}
+.day h3{font-weight:600;font-size:24px;line-height:1.1;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.day h3::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl{list-style:none;margin:0;padding:6px 22px;background:var(--card);border-radius:14px}
+.tl li{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.tl li:last-child{border-bottom:0}
+.tl time,.tl .t{font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;text-align:right;white-space:nowrap}
+.tl p{font-size:16.5px;line-height:1.55}
+.tl .hot{background:#EEF5C4;border-radius:10px;padding-inline:14px;margin:6px -14px;border-bottom:0}
+
+.people{background:var(--accent);padding-block:56px}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cols3 > div{background:var(--deep);color:var(--ivory);border-radius:14px;padding:22px 24px}
+.cols3 h3{font-weight:600;font-size:22px;margin-bottom:8px;color:var(--accent)}
+.cols3 p{font-size:16.5px;line-height:1.5}
+
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:22px;color:var(--deep)}
+.status i{width:13px;height:13px;border-radius:50%;background:var(--accent);border:2px solid var(--deep);display:block}
+.status.open{color:#1B7A4B}
+.status.open i{background:#5FD39A;border-color:#1B7A4B}
+.btn-deep{background:var(--deep);color:var(--ivory)}
+.btn-deep:hover{background:var(--deeper)}
+.reg dl{margin:0}
+.reg dl div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid #f2f5ec2e;font-size:16.5px}
+.reg dl div:first-child{border-top:0;padding-top:0}
+.reg dl div:last-child{padding-bottom:0}
+.reg dd{margin:0;font-weight:600;text-align:end}
+
+.faq{max-width:780px}
+.faq details{background:var(--card);border-radius:12px;margin-top:10px;padding-inline:22px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:18px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:500;font-size:26px;line-height:.6;color:var(--accent-dk);flex:none}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding-bottom:18px;max-width:38em}
+
+footer{background:var(--deeper);color:var(--ivory);padding-block:30px;font-size:15px;border-top:1px solid #ffffff14}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between}
+footer button{background:none;border:1.5px solid #f2f5ec66;color:var(--ivory);border-radius:8px;min-height:40px;padding:6px 14px;font-weight:600;font-size:15px;cursor:pointer}
+footer button[aria-pressed="true"]{background:var(--accent);color:var(--deeper);border-color:var(--accent)}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px}
+  .band dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .band dl > div:nth-child(3){border-inline-start:0;padding-inline-start:0}
+  .band dl > div:nth-child(n+3){border-top:1.5px solid #092a3626}
+  .chs,.two,.row3{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .menu-btn{display:inline-flex;align-items:center;margin-inline-start:auto}
+  .nav{display:none;position:absolute;inset-inline:0;top:100%;background:var(--deeper);flex-direction:column;gap:0;padding:6px 22px 14px;border-top:1px solid #f2f5ec2e;margin:0}
+  .nav.show{display:flex}
+  .nav a{padding:12px 0;font-size:17px;border-bottom:1px solid #f2f5ec22}
+  .top .wrap{position:relative;gap:10px}
+  .hero{padding-block:24px 40px}
+  .hero-logo{height:46px;margin-bottom:14px}
+  .footer-logo{height:36px}
+  .hero h1{font-size:76px;margin-top:6px}
+  .what{font-size:23px;margin-top:6px}
+  .pitch{font-size:16.5px;margin-top:10px}
+  .prize{font-size:16px;padding:10px 14px;margin-top:14px}
+  .tracks-label{margin-top:18px;font-size:15px}
+  .tracks a{font-size:14.5px;padding:9px 9px}
+  .tracks small{font-size:12.5px}
+  .cols3{gap:8px}
+  .cols3 > div{padding:14px 12px}
+  .cols3 h3{font-size:17px}
+  .cols3 p{font-size:14.5px}
+  .dlg-head,.dlg-body{padding-inline:16px}
+  .cta{margin-top:18px}
+  .band dt{font-size:36px}
+  .band dt.he{font-size:28px}
+  .band dl > div{padding:16px 14px}
+  .sec{padding-block:52px}
+  .lead{font-size:17.5px}
+  .tl{padding-inline:16px}
+  .tl li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .tl .hot{margin-inline:-8px;padding-inline:8px}
+}
+@media (max-width:420px){
+  .cta .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="EDHACK, לראש העמוד">ED<span>HACK</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">תפריט</button>
+    <nav class="nav" id="nav" aria-label="ניווט ראשי">
+      <a href="#challenges">האתגרים</a>
+      <a href="#pilot">הפיילוט</a>
+      <a href="#schedule" data-open-schedule>לו״ז</a>
+      <a href="#faq">שאלות נפוצות</a>
+      <a href="#people">הצוות</a>
+    </nav>
+    <a class="btn btn-accent" data-register href="#register">פרטי ההרשמה</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <img class="hero-logo" src="assets/img/faculty-he-light.png" alt="הפקולטה למדעים מדויקים ע״ש ריימונד ובברלי סאקלר, אוניברסיטת תל אביב" width="1016" height="192">
+      <h1>ED<span>HACK</span></h1>
+      <p class="what">האקתון להוראת המדעים המדויקים</p>
+      <p class="pitch">יומיים לבנות כלי להוראת מתמטיקה, מדעי המחשב, פיזיקה, כימיה ועוד, ולנסות אותו עם מורים, תלמידים וסטודנטים.</p>
+      <p class="prize"><b>הפרס: פיילוט.</b>הזוכים יקבלו הזדמנות להפעיל את המוצר עם לומדים אמיתיים, במוסד אקדמי או חינוכי.</p>
+      <p class="tracks-label" id="tracksLabel">שלושה אתגרים. בוחרים אחד.</p>
+      <ul class="tracks" aria-labelledby="tracksLabel">
+        <li><a href="#c1"><small>אתגר 1</small><span>בדיקה אוטומטית</span></a></li>
+        <li><a href="#c2"><small>אתגר 2</small><span>משחקים והמחשות</span></a></li>
+        <li><a href="#c3"><small>אתגר 3</small><span>תרגול פעיל</span></a></li>
+      </ul>
+      <div class="cta">
+        <a class="btn btn-accent" data-register href="#register">פרטי ההרשמה</a>
+        <a class="btn btn-line" href="#schedule" data-open-schedule>הלו״ז המלא</a>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <div class="eqn" aria-hidden="true">A ⇌ B</div>
+      <canvas id="eq" width="600" height="340" role="img" aria-label="הדמיה של שיווי משקל כימי: חלקיקים מתחלפים בין A ל־B והיחס ביניהם נשאר יציב"></canvas>
+      <div class="stats" aria-live="off">
+        <span class="a"><i></i>A <span id="pa" class="nums">40%</span></span>
+        <span class="b"><i></i>B <span id="pb" class="nums">60%</span></span>
+      </div>
+      <div class="bar"><div id="barA"></div></div>
+      <div class="ctl">
+        <button type="button" id="addA">הוסיפו חלקיקי A</button>
+        <button type="button" id="resetEq">התחילו מחדש</button>
+      </div>
+      <figcaption>שיווי משקל כימי. כל חלקיק ממשיך להתחלף בין A ל־B, והיחס ביניהם נשאר יציב. הוסיפו חלקיקי A וראו את המערכת חוזרת לאותו יחס.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band" aria-label="האירוע במספרים">
+  <div class="wrap">
+    <dl>
+      <div><dt>3</dt><dd>אתגרים</dd></div>
+      <div><dt>7</dt><dd>תחומי מדע</dd></div>
+      <div><dt>27</dt><dd>שעות, מ־<span class="ltr nums">09:00</span> עד <span class="ltr nums">12:00</span> למחרת</dd></div>
+      <div><dt class="he">פיילוט</dt><dd>לזוכים, עם לומדים אמיתיים</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="sec" id="challenges">
+  <div class="wrap">
+    <div class="h2"><h2>שלושה אתגרים</h2></div>
+    <p class="lead">כל צוות בוחר אתגר, תחום וקהל יעד. התחומים: מתמטיקה, סטטיסטיקה, מדעי המחשב, פיזיקה, אסטרונומיה, כימיה ומדעי כדור הארץ.</p>
+
+    <div class="chs">
+      <article class="ch" id="c1">
+        <div class="num" aria-hidden="true">1</div>
+        <h3>הבודק האוטומטי</h3>
+        <p class="kind">בדיקה אוטומטית של תשובות פתוחות, ברמה של בודק אנושי</p>
+        <p class="t">הכלי מקבל שאלה, מחוון וערימת פתרונות, ומחזיר בדיקה שמורה מנוסה הייתה חותמת עליה.</p>
+      </article>
+
+      <article class="ch" id="c2">
+        <div class="num" aria-hidden="true">2</div>
+        <h3>לשחק את הרעיון</h3>
+        <p class="kind">משחקים והמחשות שמלמדים רעיון מדעי</p>
+        <p class="t">משחק, אנימציה, סימולציה או יחידת לימוד מקוונת, שמשרתים את ההוראה ומעודדים למידה.</p>
+      </article>
+
+      <article class="ch" id="c3">
+        <div class="num" aria-hidden="true">3</div>
+        <h3>נתקעתי. מה עכשיו?</h3>
+        <p class="kind">תרגול פעיל בכיתה ובקורס מקוון</p>
+        <p class="t">פלטפורמה לתרגול חומר חדש, בצורה מותאמת ומלמדת. כשמישהו נתקע, הכלי מתייחס למה שכבר ניסה ונותן רמז שמשאיר בידיו את הצעד הבא.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-deep" id="pilot">
+  <div class="wrap">
+    <div class="h2"><h2>הפרס: פיילוט</h2></div>
+    <p class="lead" style="margin-bottom:0">הזוכים יקבלו הזדמנות להפעיל את המוצר שלהם עם לומדים אמיתיים, בקורס או בכיתה של מוסד אקדמי או חינוכי.</p>
+    <div class="row3">
+      <div class="cell"><span>המוסדות המארחים</span><span data-detail="pilotHosts"><span class="tb">TB</span></span></div>
+      <div class="cell"><span>היקף, משך וליווי</span><span data-detail="pilotTerms"><span class="tb">TB</span></span></div>
+      <div class="cell"><span>רוצים לארח פיילוט?</span><a href="#contact">דברו איתנו</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white reg" id="register">
+  <div class="wrap">
+    <div class="h2"><h2>הרשמה</h2></div>
+    <p class="status" data-reg-pill><i></i><span data-reg-status-long>ההרשמה טרם נפתחה</span></p>
+    <p class="who" style="margin-top:18px">ההשתתפות פתוחה לכולם: סטודנטים, אנשי סגל, מורים ועוד.</p>
+    <p class="who">הכלים עצמם מיועדים ללומדים ולמלמדים, מבית הספר היסודי ועד האוניברסיטה.</p>
+    <p style="margin-top:16px;max-width:36em">כל משתתפ.ת ממלא.ת טופס. יש לכם צוות? תאמו מראש שם צוות משותף. אין צוות? ספרו לנו במה תרצו לתרום ואנחנו נדאג לכם לציוות.</p>
+    <p class="cta" data-reg-cta hidden><a class="btn btn-deep" data-register-direct href="#register">להרשמה</a></p>
+    <p id="contact" style="margin-top:22px">יצירת קשר: <span data-detail="contact"><span class="tb">TB</span></span></p>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="h2"><h2>שאלות נפוצות</h2></div>
+    <div class="faq">
+      <details>
+        <summary>מי יכול להשתתף?</summary>
+        <p>כולם: סטודנטים, אנשי סגל, מורים ועוד.</p>
+      </details>
+      <details>
+        <summary>אין לי צוות. אפשר להירשם?</summary>
+        <p>כן. בטופס ההרשמה תסמנו שאתם מחפשים צוות ותכתבו במה תרצו לתרום, ואנחנו נדאג לכם לציוות.</p>
+      </details>
+      <details>
+        <summary>אני לא מתכנת או מתכנתת. יש לי מה לתרום?</summary>
+        <p>כן. כלי הוראה טוב צריך מישהו שמכיר את החומר המדעי ומישהו שיודע איפה לומדים נתקעים.</p>
+      </details>
+      <details>
+        <summary>נשארים במקום כל הלילה?</summary>
+        <p>הלו״ז המוצע כולל פיתוח בין <span class="ltr nums">23:30</span> ל־<span class="ltr nums">06:00</span>. סידורי השהייה בלילה: <span data-detail="overnight"><span class="tb">TB</span></span></p>
+      </details>
+      <details>
+        <summary>איך מגיעים, ומה לגבי נגישות?</summary>
+        <p>מיקום והוראות הגעה: <span data-detail="location"><span class="tb">TB</span></span><br>סידורי נגישות: <span data-detail="accessibility"><span class="tb">TB</span></span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec people" id="people" aria-label="מארגנים, מנטורים ושופטים">
+  <div class="wrap">
+    <div class="cols3">
+      <div>
+        <h3>מארגנים</h3>
+        <p><b>פרופ׳ שירי ארטשטיין</b><br>סגנית לענייני הוראה</p>
+      </div>
+      <div>
+        <h3>מנטורים</h3>
+        <p><span data-detail="mentors"><span class="tb">TB</span></span></p>
+      </div>
+      <div>
+        <h3>שופטים</h3>
+        <p><span data-detail="judges"><span class="tb">TB</span></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog id="schedule" aria-labelledby="schedTitle">
+  <div class="dlg-head">
+    <h2 id="schedTitle">הלו״ז המוצע</h2>
+    <button type="button" id="schedClose">סגירה</button>
+  </div>
+  <div class="dlg-body">
+    <p class="when" style="margin-top:0;color:var(--muted)"><span>תאריכים: <span data-detail="date"><span class="tb">TB</span></span></span><span>מיקום: <span data-detail="location"><span class="tb">TB</span></span></span><span>השעות עשויות להשתנות</span></p>
+    <div class="day">
+      <h3>שבועיים לפני</h3>
+      <ol class="tl">
+        <li><span class="t" style="direction:rtl">הכנה</span><p>פרסום חומרי הרקע, דוגמאות ואופן השיפוט. תיאום המנטורים וקבוצות ההתנסות.</p></li>
+      </ol>
+    </div>
+
+    <div class="day">
+      <h3>יום 1</h3>
+      <ol class="tl">
+        <li><time>09:00–10:15</time><p>התכנסות, השלמת צוותים, פתיחה והצגת האתגרים.</p></li>
+        <li><time>10:15–13:00</time><p>בחירת קהל יעד ובניית גרסה ראשונה.</p></li>
+        <li><time>13:00–16:00</time><p>ארוחת צהריים ופיתוח עם מנטורים.</p></li>
+        <li class="hot"><time>16:00–18:00</time><p><b>התנסות עם קהל היעד.</b> מורים ומתרגלים מנסים את כלי הבדיקה. תלמידים וסטודנטים מנסים את המשחקים, ההמחשות וכלי התרגול.</p></li>
+        <li><time>18:00–23:30</time><p>ארוחת ערב, שיפור בעקבות ההתנסות, סבב מנטורים נוסף וארוחת לילה.</p></li>
+        <li><time>23:30–06:00</time><p>השלמת הפיתוח והכנת ההגשה.</p></li>
+      </ol>
+    </div>
+
+    <div class="day">
+      <h3>יום 2</h3>
+      <ol class="tl">
+        <li><time>06:00</time><p><b>הגשת התוצרים.</b> אחריה הפסקה והכנה לשיפוט.</p></li>
+        <li><time>08:30–10:00</time><p>הדגמות ושיפוט בשלושת המסלולים במקביל.</p></li>
+        <li><time>10:00–10:45</time><p>ארוחת בוקר ודיון השופטים.</p></li>
+        <li><time>10:45–12:00</time><p>גמר פקולטי, הכרזה והדגמות הזוכים.</p></li>
+      </ol>
+    </div>
+  </div>
+</dialog>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="footer-logo" src="assets/img/faculty-he-light.png" alt="הפקולטה למדעים מדויקים ע״ש ריימונד ובברלי סאקלר, אוניברסיטת תל אביב" width="1016" height="192">
+    <button type="button" id="motionBtn" aria-pressed="false">הפחתת תנועה</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var CFG = window.EDHACK || {registrationUrl:"",details:{}};
+  var TB = '<span class="tb" title="ייקבע בהמשך">TB</span>';
+
+  /* ---------- פרטים ו-TB ---------- */
+  document.querySelectorAll("[data-detail]").forEach(function(el){
+    var d = CFG.details[el.getAttribute("data-detail")];
+    if(!d) return;
+    if(d.value === "TB" || !d.value){ el.innerHTML = TB; } else { el.textContent = d.value; }
+  });
+  /* ---------- הרשמה: כתובת אחת לכל הכפתורים ---------- */
+  var url = (CFG.registrationUrl || "").trim();
+  if(url){
+    document.querySelectorAll("[data-register],[data-register-direct]").forEach(function(a){
+      a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "להרשמה";
+    });
+    document.querySelectorAll("[data-reg-status-long]").forEach(function(e){e.textContent = "ההרשמה פתוחה";});
+    var pill = document.querySelector("[data-reg-pill]"); if(pill) pill.classList.add("open");
+    var cta = document.querySelector("[data-reg-cta]"); if(cta) cta.hidden = false;
+  }
+
+  /* ---------- הלו״ז נפתח בחלון מעל העמוד ---------- */
+  var dlg = document.getElementById("schedule");
+  document.querySelectorAll("[data-open-schedule]").forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      if(dlg.showModal){ dlg.showModal(); } else { dlg.setAttribute("open",""); }
+      dlg.scrollTop = 0;
+    });
+  });
+  document.getElementById("schedClose").addEventListener("click", function(){ dlg.close ? dlg.close() : dlg.removeAttribute("open"); });
+  dlg.addEventListener("click", function(e){ if(e.target === dlg && dlg.close) dlg.close(); });
+
+  /* ---------- תפריט בנייד ---------- */
+  var mb = document.getElementById("menuBtn"), nav = document.getElementById("nav");
+  mb.addEventListener("click", function(){
+    var on = nav.classList.toggle("show");
+    mb.setAttribute("aria-expanded", on ? "true" : "false");
+    mb.textContent = on ? "סגירה" : "תפריט";
+  });
+  nav.addEventListener("click", function(e){
+    if(e.target.tagName === "A"){ nav.classList.remove("show"); mb.setAttribute("aria-expanded","false"); mb.textContent = "תפריט"; }
+  });
+
+  /* ---------- הדמיה: שיווי משקל דינמי A ⇌ B ---------- */
+  var cv = document.getElementById("eq"), ctx = cv.getContext("2d");
+  var W = 600, H = 340, R = 4.2, KF = 0.0015, KR = 0.0010, START = 180, ADD = 70, MAX = 390;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = W*dpr; cv.height = H*dpr; ctx.scale(dpr, dpr);
+  var IVORY = "#F2F5EC", BRASS = "#D4E86A";
+  var ps = [], ema = 0.6, frame = 0, raf = null;
+  var pa = document.getElementById("pa"), pb = document.getElementById("pb"), barA = document.getElementById("barA");
+  var addBtn = document.getElementById("addA"), resetBtn = document.getElementById("resetEq");
+
+  function mk(isB){
+    var a = Math.random()*Math.PI*2, v = .35 + Math.random()*.5;
+    return {x: R+Math.random()*(W-2*R), y: R+Math.random()*(H-2*R), vx: Math.cos(a)*v, vy: Math.sin(a)*v, b: isB, p: 0};
+  }
+  function reset(){
+    ps = []; for(var i=0;i<START;i++) ps.push(mk(Math.random() < KF/(KF+KR)));
+    ema = fracB(); addBtn.disabled = false; show(); draw();
+  }
+  function fracB(){ var n = 0; for(var i=0;i<ps.length;i++) if(ps[i].b) n++; return ps.length ? n/ps.length : 0; }
+  function show(){
+    var b = Math.round(ema*100);
+    pa.textContent = (100-b) + "%"; pb.textContent = b + "%"; barA.style.width = (100-b) + "%";
+  }
+  function step(){
+    for(var i=0;i<ps.length;i++){
+      var q = ps[i];
+      q.x += q.vx; q.y += q.vy;
+      if(q.x < R || q.x > W-R) q.vx = -q.vx;
+      if(q.y < R || q.y > H-R) q.vy = -q.vy;
+      if(Math.random() < (q.b ? KR : KF)){ q.b = !q.b; q.p = 1; }
+      if(q.p > 0) q.p = Math.max(0, q.p - .035);
+    }
+    ema += (fracB() - ema)*.06;
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<ps.length;i++){
+      var q = ps[i], c = q.b ? BRASS : IVORY;
+      if(q.p > 0){
+        ctx.beginPath(); ctx.arc(q.x,q.y,R + 11*(1-q.p),0,6.2832);
+        ctx.strokeStyle = c; ctx.globalAlpha = q.p*.8; ctx.lineWidth = 1.2; ctx.stroke(); ctx.globalAlpha = 1;
+      }
+      ctx.beginPath(); ctx.arc(q.x,q.y,R,0,6.2832); ctx.fillStyle = c; ctx.fill();
+    }
+  }
+  function loop(){
+    step(); draw();
+    if(++frame % 12 === 0) show();
+    raf = requestAnimationFrame(loop);
+  }
+  function settle(){ /* מצב הפחתת תנועה: קפיצה ישירה למצב שיווי המשקל */
+    var t = KF/(KF+KR);
+    for(var i=0;i<ps.length;i++){ ps[i].b = Math.random() < t; ps[i].p = 0; }
+    ema = fracB(); show(); draw();
+  }
+  addBtn.addEventListener("click", function(){
+    for(var i=0;i<ADD && ps.length<MAX;i++){ var q = mk(false); q.p = 1; ps.push(q); }
+    if(ps.length >= MAX) addBtn.disabled = true;
+    ema = fracB(); show();
+    if(reduced) draw();
+  });
+  resetBtn.addEventListener("click", reset);
+
+  /* ---------- תנועה ---------- */
+  var root = document.documentElement, btn = document.getElementById("motionBtn");
+  var sysReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var saved = null; try{ saved = localStorage.getItem("edhack-motion"); }catch(e){}
+  var reduced = saved ? saved === "reduced" : sysReduced;
+  function applyMotion(){
+    root.setAttribute("data-motion", reduced ? "reduced" : "full");
+    btn.setAttribute("aria-pressed", reduced ? "true" : "false");
+    if(raf){ cancelAnimationFrame(raf); raf = null; }
+    if(reduced){ settle(); } else { raf = requestAnimationFrame(loop); }
+  }
+  reset();
+  applyMotion();
+  btn.addEventListener("click", function(){
+    reduced = !reduced; applyMotion();
+    try{ localStorage.setItem("edhack-motion", reduced ? "reduced" : "full"); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
