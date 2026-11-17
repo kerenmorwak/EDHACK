@@ -352,13 +352,13 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 .card-turn{display:grid;min-height:330px;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .flip-card.is-flipped .card-turn{transform:rotateY(180deg)}
 .card-face{grid-area:1/1;min-width:0;position:relative;padding:27px 28px 78px;background:var(--tone);border:1px solid #092a3622;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 7px 0 #092a3610,0 14px 30px #092a3609}
-.card-front{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end}
+.card-front{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
 .card-index{font-size:.875rem;font-weight:600;letter-spacing:.03em}
 .card-front .card-index{position:absolute;inset-block-start:26px;inset-inline-start:28px}
-.card-art{position:absolute;top:19px;left:22px;width:112px;height:94px;opacity:.78;pointer-events:none}
-.ch .card-front h3{margin-top:105px;font-size:clamp(25px,2.25vw,34px);line-height:1.12;max-width:12em;text-wrap:balance}
+.card-art{position:absolute;top:19px;inset-inline-end:22px;width:112px;height:94px;opacity:.78;pointer-events:none}
+.ch .card-front h3{margin-top:105px;min-height:2.24em;font-size:clamp(25px,2.25vw,34px);line-height:1.12;max-width:12em;text-wrap:balance}
 .ch .card-front .kind{font-size:1rem;line-height:1.5;font-weight:500;margin-top:12px;max-width:22em;color:var(--deeper)}
-.card-open{position:absolute;inset:0;width:100%;border:0;border-radius:18px;background:transparent;color:var(--deeper);cursor:pointer;text-align:right;font-size:.9375rem;font-weight:600}
+.card-open{position:absolute;inset:0;width:100%;border:0;border-radius:18px;background:transparent;color:var(--deeper);cursor:pointer;text-align:start;font-size:.9375rem;font-weight:600}
 .card-open>span{position:absolute;inset-inline:28px;bottom:22px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #092a3633;padding-top:12px}
 .card-open>span>span{font-size:1.6rem;line-height:1}
 .card-front:has(.card-open:hover){box-shadow:0 10px 0 #092a3616,0 20px 35px #092a3618}
@@ -431,6 +431,25 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
 @media(max-width:1100px) and (min-width:761px){.hero .wrap{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:22px}.hero h1{font-size:clamp(46px,5.7vw,70px)}.hero .what{font-size:1.6rem}.lab-math-label{font-size:.65rem}.lab-tabs button{padding-inline:9px}.lab-controls{gap:8px}.lab-controls label{font-size:.75rem}}
 @media(max-width:760px){.hero-lab{max-width:400px}.lab-tabs{width:100%;border-radius:20px}.lab-tabs button{flex:0 0 30%;padding-inline:5px}.lab-math-label{font-size:.6875rem}.lab-controls{padding-inline:6px;gap:12px}.lab-tabs button{padding-inline:10px}.lab-math-panel{left:22%;right:2%;font-size:.75rem}.lab-equation{font-size:1.1rem}.hero-lab figcaption{font-size:.8125rem}html[data-contrast="high"] .hero .wrap{grid-template-columns:minmax(0,1fr)}html[data-text="large"] .lab-controls{grid-template-columns:1fr;gap:0}html[data-text="large"] .lab-controls-pair{grid-template-columns:1fr 1fr}html[data-text="large"] .lab-tabs button{padding-inline:9px}html[data-text="large"] .lab-math-panel{font-size:.7rem}}
 
+
+/* Bilingual navigation and direction-aware reading layout. */
+.language-btn{background:transparent;color:var(--ivory);border:1px solid #f2f5ec77;border-radius:8px;min-height:40px;padding:6px 12px;font:500 .875rem var(--font);cursor:pointer}
+.language-btn:hover{background:#ffffff14}
+.form-language-note{font-size:.875rem;color:var(--muted);margin-top:12px}
+html[lang="en"] .hero h1,html[lang="en"] .band dt,html[lang="en"] .tl time,html[lang="en"] .tl .t{text-align:left}
+html[lang="en"] .hero h1{justify-content:flex-start}
+html[lang="en"] .band dt.he{direction:ltr}
+html[lang="en"] .hero .what{font-size:clamp(24px,2.4vw,34px);max-width:24em}
+html[lang="en"] .school-brand-text{text-align:left}
+html[lang="en"] .nav{gap:20px}
+html[lang="en"] .lab-tabs button{padding-inline:9px;font-size:.78rem}
+html[lang="en"] .lab-controls{max-width:420px}
+html[lang="en"] .lab-math-label{white-space:normal;line-height:1.2}
+html[lang="en"] .lab-math-panel{font-size:.75rem}
+html[lang="en"] .ch h3{font-size:clamp(26px,2.5vw,36px)}
+@media(min-width:761px) and (max-width:1100px){.top .wrap{gap:10px}.nav,html[lang="en"] .nav{gap:12px}.nav a{font-size:.82rem}.top .btn{padding-inline:12px}html[lang="en"] .brand{font-size:1.25rem}}
+@media(max-width:760px){.top .wrap{gap:8px}.language-btn{padding-inline:9px;font-size:.8rem}.top .btn{padding-inline:12px;font-size:.86rem}.menu-btn{padding-inline:10px;font-size:.84rem}html[lang="en"] .lab-tabs button{font-size:.75rem;padding-inline:5px}html[lang="en"] .lab-math-panel{font-size:.68rem}html[lang="en"] .lab-controls label{font-size:.75rem}html[lang="en"] .hero h1{justify-content:flex-start}}
+@media(max-width:370px){.top .wrap{gap:5px}.top .brand{font-size:1.17rem}.top .btn,.language-btn,.menu-btn{padding-inline:7px;font-size:.75rem}}
 </style>
 </head>
 <body>
@@ -440,6 +459,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="EDHACK, לראש העמוד"><svg class="sigma-e" viewBox="0 0 68 72" aria-hidden="true" focusable="false"><path d="M59 7H10L24 36 10 65H59M24 36H45"/></svg>D<span>HACK</span></a>
+    <button type="button" class="language-btn" id="languageBtn" lang="en" dir="ltr" aria-label="Switch to English">English</button>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">תפריט</button>
     <nav class="nav" id="nav" aria-label="ניווט ראשי">
       <a href="#challenges">האתגרים</a>
@@ -510,7 +530,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
 <section class="sec challenges" id="challenges">
   <div class="wrap">
     <div class="h2"><h2>שלושה אתגרים. בוחרים אחד.</h2></div>
-    <p class="lead challenge-intro">המתמטיקה במרכז, והתחום פתוח: מתמטיקה עצמה, או המתמטיקה של סטטיסטיקה, מדעי המחשב, פיזיקה, אסטרונומיה, כימיה ומדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.</p>
+    <p class="lead challenge-intro">המתמטיקה במרכז, והתחום פתוח: מתמטיקה, כולל סטטיסטיקה, או שימושי המתמטיקה במדעי המחשב, בפיזיקה, באסטרונומיה, בכימיה ובמדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.</p>
 
     <div class="chs">
       <article class="ch flip-card" id="c1">
@@ -608,6 +628,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
       <p class="status" data-reg-pill><i></i><span data-reg-status-long>ההרשמה טרם נפתחה</span></p>
       <p class="reg-instructions">כל משתתפ.ת ממלא.ת טופס. יש לכם צוות? תאמו מראש שם צוות משותף. אין צוות? ספרו לנו במה תרצו לתרום ואנחנו נדאג לכם לציוות.</p>
       <p class="cta" data-reg-cta hidden><a class="btn btn-deep" data-register-direct href="#register">להרשמה</a></p>
+      <p id="formLanguageNote" class="form-language-note" lang="en" hidden>The registration form is currently in Hebrew.</p>
     </div>
   </div>
 </section>
@@ -729,8 +750,230 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
 
 <script>
 (function(){
+  /* Hebrew is the source language. Translate text nodes without replacing markup,
+     and render dynamic controls through tr() so switching preserves scene state. */
+  var EN = {
+    "EDHACK | האקתון להוראת המתמטיקה ושימושיה":"EDHACK | Mathematics Teaching and Applications Hackathon",
+    "EDHACK, האקתון להוראת המתמטיקה ושימושיה של בית הספר למדעי המתמטיקה באוניברסיטת תל אביב. שלושה אתגרים, יומיים, ופרסים לזוכים.":"EDHACK, the mathematics teaching and applications hackathon hosted by the School of Mathematical Sciences at Tel Aviv University. Three challenges, two days, and prizes for the winners.",
+    "EDHACK, לראש העמוד":"EDHACK, back to top",
+    "דילוג לתוכן המרכזי":"Skip to main content",
+    "ניווט ראשי":"Main navigation",
+    "תפריט":"Menu",
+    "סגירה":"Close",
+    "האתגרים":"Challenges",
+    "מההאקתון לכיתה":"From hackathon to classroom",
+    "לו״ז":"Schedule",
+    "שאלות נפוצות":"FAQ",
+    "הצוות":"The team",
+    "פרטי ההרשמה":"Registration details",
+    "להרשמה":"Register",
+    "להרשמה (נפתח בחלון חדש)":"Register (Hebrew form, opens in a new window)",
+    "בית הספר למדעי המתמטיקה":"School of Mathematical Sciences",
+    "אוניברסיטת תל אביב":"Tel Aviv University",
+    "בית הספר למדעי המתמטיקה, אוניברסיטת תל אביב":"School of Mathematical Sciences, Tel Aviv University",
+    "האקתון להוראת המתמטיקה ושימושיה":"A hackathon for teaching mathematics and its applications",
+    "הכל מתחיל במתמטיקה.":"It all starts with mathematics.",
+    "יומיים לבנות כלים שהופכים את המתמטיקה למעניינת, מובנת ורלוונטית, בכיתה, בתרגול ובכל תחום שנשען עליה: פיזיקה, כימיה, מדעי המחשב ועוד.":"Two days to build tools that make mathematics engaging, understandable, and relevant, in class, in practice, and across the fields that rely on it: physics, chemistry, computer science, and beyond.",
+    "איפה המתמטיקה? חמש התנסויות במדעים ובמתמטיקה":"Where is the math? Five interactive explorations in science and mathematics",
+    "איפה המתמטיקה?":"Where is the math?",
+    "איפה המתמטיקה? הצגת המשוואה וההסבר":"Where is the math? Show the equation and explanation",
+    "הסתרת המשוואה וההסבר":"Hide the equation and explanation",
+    "מטוטלת":"Pendulum",
+    "מניה":"Stock",
+    "תגובה כימית":"Reaction",
+    "מסלול קצר":"Shortest path",
+    "רעידת אדמה":"Earthquake",
+    "בחירת תופעה":"Choose a phenomenon",
+    "אורך החוט":"String length",
+    "תנודתיות":"Volatility",
+    "קצב התגובה":"Reaction rate",
+    "חסימת דרך":"Block a road",
+    "כל הדרכים פתוחות":"All roads open",
+    "תחנות מדידה":"Measuring stations",
+    "1.8 מ׳":"1.8 m",
+    "1.8 מטרים":"1.8 meters",
+    "30 אחוזים":"30 percent",
+    "0.3 /ש׳":"0.3 /s",
+    "1 מתוך 3":"1 of 3",
+    "מתוך 3":"of 3",
+    "מ׳":"m",
+    "מטרים":"meters",
+    "/ש׳":"/s",
+    "לשנייה":"per second",
+    "אחוזים":"percent",
+    "שלושה אתגרים. בוחרים אחד.":"Three challenges. Choose one.",
+    "המתמטיקה במרכז, והתחום פתוח: מתמטיקה, כולל סטטיסטיקה, או שימושי המתמטיקה במדעי המחשב, בפיזיקה, באסטרונומיה, בכימיה ובמדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.":"Mathematics is at the heart of it. Explore mathematics, including statistics, or its applications in computer science, physics, astronomy, chemistry, and earth sciences. Each team chooses a challenge, a field, and an audience.",
+    "אתגר 1":"Challenge 1",
+    "אתגר 2":"Challenge 2",
+    "אתגר 3":"Challenge 3",
+    "למה צריך את זה?":"Why do we need this?",
+    "מתמטיקה שמעוררת סקרנות, כבר מהשיעור הראשון":"Mathematics that sparks curiosity from the very first lesson",
+    "פעילות או כלי לשיעור שמראים למה הרעיון המתמטי מעניין וחשוב: דרך בעיה אמיתית, חיבור לכימיה, לפיזיקה או למדעי המחשב, או שאלה מתמטית שמסקרנת. משהו שקורה בכיתה ושווה להגיע בשבילו.":"A classroom activity or tool that shows why a mathematical idea is interesting and useful: through a real problem, a connection to chemistry, physics, or computer science, or an intriguing mathematical question. Something worth coming to class for.",
+    "לפרטי האתגר":"Explore the challenge",
+    "חזרה לכותרת":"Back to overview",
+    "לשחק את המתמטיקה":"Play with mathematics",
+    "משחקים וחוויות אינטראקטיביות שהופכים את הלמידה למשחקית":"Games and interactive experiences that make learning playful",
+    "משחק, פעילות או כלי שהופכים את לימוד המתמטיקה לחוויה שמעודדת להשתתף, להתנסות ולהבין. ממשחקי זיכרון והתאמות ועד חידות, סימולציות ועולמות משחק.":"A game, activity, or tool that turns learning mathematics into an experience that encourages participation, exploration, and understanding. From memory and matching games to puzzles, simulations, and game worlds.",
+    "נתקעתי. מה עכשיו?":"I'm stuck. What next?",
+    "תרגול עצמי עם רמזים, בכיתה ובקורס מקוון":"Independent practice with hints, in class and online",
+    "פלטפורמה לתרגול חומר חדש, בצורה מותאמת ומלמדת שמגבירה את המוטיבציה לתרגל. כשמישהו נתקע, הכלי מתייחס למה שכבר ניסה ונותן רמז שמשאיר בידיו את הצעד הבא.":"A platform for practicing new material with adaptive support that builds understanding and motivation. When a learner gets stuck, the tool considers what they have already tried and offers a hint, leaving the next step to them.",
+    "הלו״ז המלא":"Full schedule",
+    "הצוותים הזוכים יקבלו הזדמנות להביא את הכלי שפיתחו לשימוש בקורס או בכיתה במוסד אקדמי או חינוכי.":"Winning teams will have the opportunity to bring their tools into a course or classroom at an academic or educational institution.",
+    "המוסדות המארחים":"Host institutions",
+    "רוצים לארח פיילוט?":"Interested in hosting a pilot?",
+    "דברו איתנו":"Get in touch",
+    "האירוע במספרים":"The event in numbers",
+    "אתגרים":"Challenges",
+    "תחומים, שפה אחת: מתמטיקה":"Fields, one language: mathematics",
+    "שעות, מ־":"Hours, from ",
+    "עד":"to",
+    "למחרת":"the next day",
+    "בכיתה":"In class",
+    "הזדמנות ליישום לזוכים":"An opportunity for winners to put their tools to use",
+    "הרשמה":"Registration",
+    "ההשתתפות פתוחה לכולם: סטודנטים, אנשי סגל, מורים ועוד.":"Everyone is welcome: students, faculty, teachers, and more.",
+    "הכלים עצמם מיועדים ללומדים ולמלמדים, מבית הספר היסודי ועד האוניברסיטה.":"The tools are intended for learners and educators, from elementary school to university.",
+    "יצירת קשר:":"Contact:",
+    "ההרשמה טרם נפתחה":"Registration is not open yet",
+    "ההרשמה פתוחה":"Registration is open",
+    "כל משתתפ.ת ממלא.ת טופס. יש לכם צוות? תאמו מראש שם צוות משותף. אין צוות? ספרו לנו במה תרצו לתרום ואנחנו נדאג לכם לציוות.":"Each participant fills out a form. Already have a team? Agree on a shared team name before registering. No team yet? Tell us what you would like to contribute, and we will help you find one.",
+    "מי יכול להשתתף?":"Who can participate?",
+    "כולם: סטודנטים, אנשי סגל, מורים ועוד. הכל מתחיל במתמטיקה, ולכן יש לכם מקום כאן גם אם אתם באים מכימיה, מפיזיקה או ממדעי המחשב.":"Everyone: students, faculty, teachers, and more. It all starts with mathematics, so you belong here even if your background is in chemistry, physics, or computer science.",
+    "אין לי צוות. אפשר להירשם?":"Can I register without a team?",
+    "כן. בטופס ההרשמה תסמנו שאתם מחפשים צוות ותכתבו במה תרצו לתרום, ואנחנו נדאג לכם לציוות.":"Yes. Indicate on the registration form that you are looking for a team and tell us what you would like to contribute. We will help match you with a team.",
+    "אני לא מתכנת או מתכנתת. יש לי מה לתרום?":"Can I contribute if I don't code?",
+    "כן. כלי הוראה טוב צריך מישהו שמכיר את המתמטיקה ומישהו שיודע איפה לומדים נתקעים.":"Yes. A good teaching tool needs someone who understands the mathematics and someone who knows where learners get stuck.",
+    "נשארים במקום כל הלילה?":"Will we stay at the venue overnight?",
+    "הלו״ז המוצע כולל פיתוח בין":"The proposed schedule includes development between",
+    "ל־":"and ",
+    ". סידורי השהייה בלילה:":". Overnight arrangements:",
+    "איך מגיעים, ומה לגבי נגישות?":"How do I get there, and what about accessibility?",
+    "מיקום והוראות הגעה:":"Location and directions:",
+    "סידורי נגישות:":"Accessibility arrangements:",
+    "מארגנים, מנטורים ושופטים":"Organizers, mentors, and judges",
+    "מארגנים":"Organizers",
+    "מנטורים":"Mentors",
+    "שופטים":"Judges",
+    "סמלי אוניברסיטת תל אביב והפקולטה למדעים מדויקים":"Tel Aviv University and Faculty of Exact Sciences emblems",
+    "הלו״ז המוצע":"Proposed schedule",
+    "תאריכים:":"Dates:",
+    "מיקום:":"Location:",
+    "השעות עשויות להשתנות":"Times are subject to change",
+    "שבועיים לפני":"Two weeks before",
+    "הכנה":"Preparation",
+    "פרסום חומרי הרקע, דוגמאות ואופן השיפוט. תיאום המנטורים וקבוצות ההתנסות.":"Background materials, examples, and judging criteria are shared. Mentors and groups of learners are coordinated.",
+    "יום 1":"Day 1",
+    "יום 2":"Day 2",
+    "התכנסות, השלמת צוותים, פתיחה והצגת האתגרים.":"Arrival, team formation, opening session, and introduction to the challenges.",
+    "בחירת קהל יעד ובניית גרסה ראשונה.":"Choose your audience and build a first version.",
+    "ארוחת צהריים ופיתוח עם מנטורים.":"Lunch and development with mentors.",
+    "התנסות עם קהל היעד.":"Testing with your target audience.",
+    "מורים, תלמידים וסטודנטים מנסים את הכלים ומספרים לצוותים מה עבד ומה לא.":"Teachers, school pupils, and university students try the tools and tell teams what worked and what didn't.",
+    "ארוחת ערב, שיפור בעקבות ההתנסות, סבב מנטורים נוסף וארוחת לילה.":"Dinner, improvements based on feedback, another mentoring round, and a late-night meal.",
+    "השלמת הפיתוח והכנת ההגשה.":"Complete development and prepare your submission.",
+    "הגשת התוצרים.":"Submission deadline.",
+    "אחריה הפסקה והכנה לשיפוט.":"Followed by a break and preparation for judging.",
+    "הדגמות ושיפוט בשלושת המסלולים במקביל.":"Demos and judging across all three tracks in parallel.",
+    "ארוחת בוקר ודיון השופטים.":"Breakfast and judges' deliberations.",
+    "גמר פקולטי, הכרזה והדגמות הזוכים.":"Faculty-wide final, announcement of the winners, and winning demos.",
+    "נגישות":"Accessibility",
+    "אפשרויות נגישות":"Accessibility options",
+    "התאימו את התצוגה לנוחותכם. ההעדפות נשמרות בדפדפן הזה.":"Adjust the display to suit you. Your preferences are saved in this browser.",
+    "הגדלת טקסט":"Larger text",
+    "ניגודיות גבוהה":"High contrast",
+    "הדגשת קישורים":"Underline links",
+    "עצירת אנימציות":"Stop animations",
+    "איפוס ההעדפות":"Reset preferences",
+    "אפשר לנווט עם Tab, להפעיל כפתורים עם Enter או רווח ולסגור חלונות עם Esc. להגדלה נוספת אפשר להשתמש בהגדלת התצוגה בדפדפן.":"Use Tab to navigate, Enter or Space to activate buttons, and Esc to close dialogs. Use your browser's zoom for further magnification.",
+    "ייקבע בהמשך":"To be announced",
+    "פיזיקה":"Physics",
+    "מתמטיקה שימושית":"Applied mathematics",
+    "כימיה":"Chemistry",
+    "מדעי המחשב":"Computer science",
+    "מדעי כדור הארץ":"Earth sciences",
+    "מטוטלת בתנועה":"A pendulum in motion",
+    "גררו את הכדור ושחררו":"Drag the bob and release",
+    "גררו את הכדור ושחררו, או שנו את אורך החוט באמצעות המחוון.":"Drag and release the bob, or change the string length with the slider.",
+    "אורך החוט וכוח הכבידה קובעים את התנועה; החיכוך מאט אותה.":"String length and gravity govern the motion; friction slows it down.",
+    "מסלולים אפשריים של מניה מדומה":"Possible paths of a simulated stock",
+    "מניה מדומה · אותה התחלה, מסלולים שונים":"Simulated stock · same start, different paths",
+    "מגמה ותנודתיות יוצרות מסלולים אפשריים במודל עם אקראיות.":"Drift and volatility generate possible paths in a model with randomness.",
+    "תגובה כימית מסדר ראשון":"A first-order chemical reaction",
+    "שנו את הקצב וצפו ב־A הופך ל־B":"Change the rate and watch A turn into B",
+    "במודל הזה, קצב הפיכת A ל־B יחסי לכמות A שנותרה.":"In this model, the rate at which A becomes B is proportional to the amount of A remaining.",
+    "המסלול הקצר מ־A ל־H":"The shortest path from A to H",
+    "מ־A באפרסק ל־H בליים. חסמו דרך בלחיצה או ברשימה וגלו את המסלול הקצר.":"From peach A to lime H. Block a road by clicking it or using the list, and find the shortest path.",
+    "המספרים הם מרחקים. מחברים אותם כדי למצוא את הדרך הקצרה מ־A ל־H.":"The numbers are distances. Add them to find the shortest route from A to H.",
+    "אורך המסלול הקצר מ־A ל־H:":"Shortest path from A to H:",
+    "המסלול הקצר הוא":"The shortest path is",
+    "אל":"to",
+    ". אורכו":". Its length is",
+    "יחידות.":"units.",
+    "איתור מוקד רעידת אדמה על פני השטח":"Locating an earthquake's epicenter",
+    "הוסיפו תחנות מדידה כדי לאתר את מוקד רעידת האדמה":"Add measuring stations to locate the earthquake's epicenter",
+    "כל תחנה נותנת מרחק. במודל שטוח זה, חיתוך המעגלים מאתר את הנקודה שמעל מקור הרעידה.":"In this flat model, distance circles intersect at the earthquake's epicenter.",
+    "תחנת מדידה אחת":"One measuring station",
+    "תחנה אחת נותנת מרחק. הוסיפו עוד תחנות.":"One station gives a distance. Add more stations.",
+    "שני מעגלים, שתי אפשרויות. הוסיפו תחנה שלישית.":"Two circles, two possibilities. Add a third station.",
+    "המוקד נמצא בחיתוך של שלושת המעגלים.":"The earthquake's epicenter is where all three circles intersect.",
+    "המטוטלת":"the pendulum",
+    "התגובה":"the reaction",
+    "המסלולים":"the paths",
+    "עצירת":"Pause",
+    "עצירת המטוטלת":"Pause the pendulum",
+    "צעד אחד במטוטלת":"Advance the pendulum by one step",
+    "הגרלת מסלולים חדשים":"Generate new paths",
+    "הרצת התגובה מחדש":"Restart the reaction",
+    "פתיחת כל הדרכים":"Open all roads",
+    "מוקד רעידה חדש":"New earthquake epicenter",
+    "הפעלת המטוטלת":"Play the pendulum",
+    "עברו 10 שניות. שנו את קצב התגובה ונסו שוב.":"10 seconds have elapsed. Change the reaction rate and try again.",
+    "שלושה מסלולים אפשריים. הריצו שוב כדי לגלות אחרים.":"Three possible paths. Run again to discover others.",
+    ". אפשר לעצור את התנועה בכפתור העצירה ולהפעיל את כל הפקדים במקלדת.":". You can pause the motion and operate all controls with the keyboard.",
+    "גררו את הכדור ושחררו. במקלדת: החצים משנים את זווית השחרור, ורווח מפעיל או עוצר. אפשר לשנות את אורך החוט במחוון.":"Drag and release the bob. With the keyboard: arrows change the release angle, and Space starts or pauses motion. Adjust the string length with the slider.",
+    "המטוטלת התקדמה בשנייה אחת, ללא אנימציה.":"The pendulum advanced by one second without animation.",
+    "זווית שחרור:":"Release angle:",
+    "מעלות. לחצו רווח להפעלה.":"degrees. Press Space to start.",
+    "אחרי":"After",
+    "שניות:":"seconds:",
+    "אחוזים A,":"percent A,",
+    "אחוזים B.":"percent B.",
+    "להתנסות האינטראקטיבית יש להפעיל JavaScript בדפדפן.":"Enable JavaScript in your browser to use the interactive exploration."
+  };
+  var language="he";
+  try { var requested=new URL(location.href).searchParams.get("lang"); language=requested==="he"||requested==="en"?requested:(localStorage.getItem("edhack-language")==="en"?"en":"he"); } catch(error) {}
+  function tr(source){
+    if(language!=="en")return source;
+    var key=source.trim(),translated=EN[key];
+    return translated===undefined?source:source.slice(0,source.indexOf(key))+translated+source.slice(source.indexOf(key)+key.length);
+  }
+  var translationNodes=[],translationAttributes=[];
+  function captureTranslations(){
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),node;
+    while((node=walker.nextNode())){
+      if(node.parentElement.closest("script,style,noscript,#languageBtn"))continue;
+      if(EN[node.nodeValue.trim()]!==undefined)translationNodes.push({node:node,source:node.nodeValue});
+    }
+    document.querySelectorAll("[aria-label],[aria-description],[aria-valuetext],[alt],[title]").forEach(function(el){
+      if(el.id==="languageBtn")return;
+      ["aria-label","aria-description","aria-valuetext","alt","title"].forEach(function(attr){var value=el.getAttribute(attr);if(value&&EN[value.trim()]!==undefined)translationAttributes.push({el:el,attr:attr,source:value});});
+    });
+  }
+  function applyLanguage(save){
+    document.documentElement.lang=language;document.documentElement.dir=language==="en"?"ltr":"rtl";
+    translationNodes.forEach(function(item){if(item.node.isConnected)item.node.nodeValue=tr(item.source);});
+    translationAttributes.forEach(function(item){if(item.el.isConnected)item.el.setAttribute(item.attr,tr(item.source));});
+    document.title=tr("EDHACK | האקתון להוראת המתמטיקה ושימושיה");
+    document.querySelector('meta[name="description"]').content=tr("EDHACK, האקתון להוראת המתמטיקה ושימושיה של בית הספר למדעי המתמטיקה באוניברסיטת תל אביב. שלושה אתגרים, יומיים, ופרסים לזוכים.");
+    var button=document.getElementById("languageBtn");button.textContent=language==="he"?"English":"עברית";button.lang=language==="he"?"en":"he";button.dir=language==="he"?"ltr":"rtl";button.setAttribute("aria-label",language==="he"?"Switch to English":"מעבר לעברית");
+    document.getElementById("formLanguageNote").hidden=language!=="en";
+    refreshLocalizedUI();
+    if(save){try{localStorage.setItem("edhack-language",language);}catch(error){}var address=new URL(location.href);address.searchParams.set("lang",language);history.replaceState(null,"",address);}
+  }
+
+  captureTranslations();
   var CFG = window.EDHACK || {registrationUrl:"",details:{}};
-  var TB = '<span class="tb" title="ייקבע בהמשך">TB</span>';
+  var TB = '<span class="tb" title="'+tr("ייקבע בהמשך")+'">TB</span>';
 
   /* ---------- פרטים ו-TB ---------- */
   document.querySelectorAll("[data-detail]").forEach(function(el){
@@ -742,9 +985,9 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
   var url = (CFG.registrationUrl || "").trim();
   if(url){
     document.querySelectorAll("[data-register],[data-register-direct]").forEach(function(a){
-      a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "להרשמה"; a.setAttribute("aria-label","להרשמה (נפתח בחלון חדש)");
+      a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = tr("להרשמה"); a.setAttribute("aria-label",tr("להרשמה (נפתח בחלון חדש)"));
     });
-    document.querySelectorAll("[data-reg-status-long]").forEach(function(e){e.textContent = "ההרשמה פתוחה";});
+    document.querySelectorAll("[data-reg-status-long]").forEach(function(e){e.textContent = tr("ההרשמה פתוחה");});
     var pill = document.querySelector("[data-reg-pill]"); if(pill) pill.classList.add("open");
     var cta = document.querySelector("[data-reg-cta]"); if(cta) cta.hidden = false;
   }
@@ -766,10 +1009,10 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
   mb.addEventListener("click", function(){
     var on = nav.classList.toggle("show");
     mb.setAttribute("aria-expanded", on ? "true" : "false");
-    mb.textContent = on ? "סגירה" : "תפריט";
+    mb.textContent = on ? tr("סגירה") : tr("תפריט");
   });
   nav.addEventListener("click", function(e){
-    if(e.target.tagName === "A"){ nav.classList.remove("show"); mb.setAttribute("aria-expanded","false"); mb.textContent = "תפריט"; }
+    if(e.target.tagName === "A"){ nav.classList.remove("show"); mb.setAttribute("aria-expanded","false"); mb.textContent = tr("תפריט"); }
   });
 
   /* Challenge cards: click, touch and keyboard share the same disclosure. */
@@ -834,6 +1077,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
   var hint=document.getElementById("labHint"),status=document.getElementById("labStatus");
   var lengthInput=document.getElementById("pendLength"),volInput=document.getElementById("stockVolatility"),rateInput=document.getElementById("reactionRate"),roadInput=document.getElementById("blockedRoad"),stationsInput=document.getElementById("quakeStations");
   var mode="pendulum",mathVisible=false,running=false,raf=null,last=null,visible=true;
+  var sceneScale=1,sceneX=0,sceneY=0;
   var state=[.72,0],trail=[],elapsed=0,paths=[],stockMin=50,stockMax=180,dragging=false;
   var ink="#092a36",peach="#f5b19d",lime="#d4e86a";
   var modeInfo={
@@ -841,8 +1085,8 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
 
     stock:{subject:"מתמטיקה שימושית",title:"מסלולים אפשריים של מניה מדומה",hint:"מניה מדומה · אותה התחלה, מסלולים שונים",equation:"dS = μS dt + σS dW",text:"מגמה ותנודתיות יוצרות מסלולים אפשריים במודל עם אקראיות."},
     chemical:{subject:"כימיה",title:"תגובה כימית מסדר ראשון",hint:"שנו את הקצב וצפו ב־A הופך ל־B",equation:"A′ = −kA,   B′ = kA",text:"במודל הזה, קצב הפיכת A ל־B יחסי לכמות A שנותרה."},
-    route:{subject:"מדעי המחשב",title:"מציאת מסלול קצר ברשת",hint:"לחצו על דרך כדי לחסום אותה, או בחרו ברשימה",equation:"min ∑ w(e)",text:"המשקלים הם מרחקים. האלגוריתם מוצא מסלול שסכומם בו מינימלי."},
-    earth:{subject:"מדעי כדור הארץ",title:"איתור מוקד רעידת אדמה",hint:"הוסיפו תחנות כדי לגלות את המוקד",equation:"(x − xᵢ)² + (y − yᵢ)² = rᵢ²",text:"במודל המפושט, כל תחנה נותנת מרחק. חיתוך המעגלים מגלה את המיקום."}
+    route:{subject:"מדעי המחשב",title:"המסלול הקצר מ־A ל־H",hint:"מ־A באפרסק ל־H בליים. חסמו דרך בלחיצה או ברשימה וגלו את המסלול הקצר.",equation:"min ∑ w(e)",text:"המספרים הם מרחקים. מחברים אותם כדי למצוא את הדרך הקצרה מ־A ל־H."},
+    earth:{subject:"מדעי כדור הארץ",title:"איתור מוקד רעידת אדמה על פני השטח",hint:"הוסיפו תחנות מדידה כדי לאתר את מוקד רעידת האדמה",equation:"(x − xᵢ)² + (y − yᵢ)² = rᵢ²",text:"כל תחנה נותנת מרחק. במודל שטוח זה, חיתוך המעגלים מאתר את הנקודה שמעל מקור הרעידה."}
   };
   function circle(x,y,r,fill,extra){return '<circle cx="'+x.toFixed(2)+'" cy="'+y.toFixed(2)+'" r="'+r+'" fill="'+fill+'" '+(extra||'')+'/>';}
   function line(x1,y1,x2,y2,color,width,extra){return '<path d="M'+x1+' '+y1+'L'+x2+' '+y2+'" fill="none" stroke="'+color+'" stroke-width="'+width+'" '+(extra||'')+'/>';}
@@ -880,7 +1124,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
     scene.innerHTML=s;
   }
   var graphNodes=[[143,185],[206,112],[211,258],[260,168],[284,263],[322,111],[358,225],[368,178]];
-  var graphEdges=[[0,1,4],[0,2,3],[1,3,2],[2,3,5],[2,4,4],[1,5,6],[3,5,2],[3,6,4],[4,6,2],[5,7,3],[6,7,2]];
+  var graphEdges=[[0,1,4],[0,2,3],[1,3,2],[2,3,5],[2,4,5],[1,5,6],[3,5,2],[3,6,4],[4,6,2],[5,7,3],[6,7,2]];
   var stations=[[192,132],[319,154],[235,264]],epicenter=[270,202];
   function nodeName(i){return String.fromCharCode(65+i);}
   graphEdges.forEach(function(e,i){var option=document.createElement("option");option.value=String(i);option.textContent=nodeName(e[0])+" ↔ "+nodeName(e[1]);roadInput.appendChild(option);});
@@ -893,7 +1137,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
     }
     s+=label(194,291,"A "+Math.round(fractions.a*100)+"%")+label(310,291,"B "+Math.round(fractions.b*100)+"%");
     s+=label(252,315,elapsed.toFixed(1)+" s",'font-size="12" opacity=".7"');scene.innerHTML=s;
-    svg.setAttribute("aria-description","אחרי "+elapsed.toFixed(1)+" שניות: "+Math.round(fractions.a*100)+" אחוזים A, "+Math.round(fractions.b*100)+" אחוזים B.");
+    svg.setAttribute("aria-description",tr("אחרי ")+elapsed.toFixed(1)+tr(" שניות: ")+Math.round(fractions.a*100)+tr(" אחוזים A, ")+Math.round(fractions.b*100)+tr(" אחוזים B."));
   }
   function drawRoute(){
     var blocked=Number(roadInput.value),result=LabMath.shortest(graphNodes,graphEdges,blocked),s='';
@@ -906,25 +1150,31 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
       s+=line(a[0],a[1],b[0],b[1],"transparent",20,'data-edge="'+i+'" style="cursor:pointer"');
     });
     graphNodes.forEach(function(p,i){s+=circle(p[0],p[1],i===0||i===7?15:12,i===0?peach:i===7?lime:"#bfc8ff",'stroke="'+ink+'" stroke-width="2"')+label(p[0],p[1]+5,nodeName(i));});
-    scene.innerHTML=s;status.textContent="אורך המסלול הקצר: "+result.cost;svg.setAttribute("aria-description","המסלול הקצר הוא "+result.path.map(nodeName).join(" אל ")+". אורכו "+result.cost+" יחידות.");
+    scene.innerHTML=s;status.textContent=tr("אורך המסלול הקצר מ־A ל־H: ")+result.cost;svg.setAttribute("aria-description",tr("המסלול הקצר הוא ")+result.path.map(nodeName).join(tr(" אל "))+tr(". אורכו ")+result.cost+tr(" יחידות."));
   }
-  function newEpicenter(){epicenter=[235+Math.random()*55,175+Math.random()*45];stationsInput.value="1";document.getElementById("quakeStationsValue").textContent="1 מתוך 3";stationsInput.setAttribute("aria-valuetext","תחנת מדידה אחת");}
+  function newEpicenter(){epicenter=[235+Math.random()*55,175+Math.random()*45];stationsInput.value="1";document.getElementById("quakeStationsValue").textContent=tr("1 מתוך 3");stationsInput.setAttribute("aria-valuetext",tr("תחנת מדידה אחת"));}
   function drawEarth(){
     var count=Number(stationsInput.value),colors=[ink,"#435394", "#913b35"],s='';
     // A schematic surface-location model: radii are exact horizontal distances.
     for(var i=0;i<count;i++){var p=stations[i],r=LabMath.distance(p,epicenter);s+=circle(p[0],p[1],r,"none",'stroke="'+colors[i]+'" stroke-width="2" opacity=".85"');if(mathVisible){s+=line(p[0],p[1],p[0]+r*.8,p[1]+r*.6,colors[i],1,'stroke-dasharray="4 4"');s+=label(p[0]+r*.4,p[1]+r*.3-5,"r"+(i+1));}}
     stations.forEach(function(p,i){s+=circle(p[0],p[1],9,i<count?peach:"#ffffff55",'stroke="'+ink+'" stroke-width="1.5"')+label(p[0],p[1]-15,String(i+1));});
     if(count===3){s+=circle(epicenter[0],epicenter[1],12,"none",'stroke="'+ink+'" stroke-width="1.5"')+circle(epicenter[0],epicenter[1],5,lime,'stroke="'+ink+'" stroke-width="2"');}
-    scene.innerHTML=s;status.textContent=count===1?"תחנה אחת נותנת מרחק. הוסיפו עוד תחנות.":count===2?"שני מעגלים, שתי אפשרויות. הוסיפו תחנה שלישית.":"המוקד נמצא בחיתוך של שלושת המעגלים.";svg.setAttribute("aria-description",status.textContent);
+    scene.innerHTML=s;status.textContent=count===1?tr("תחנה אחת נותנת מרחק. הוסיפו עוד תחנות."):count===2?tr("שני מעגלים, שתי אפשרויות. הוסיפו תחנה שלישית."):tr("המוקד נמצא בחיתוך של שלושת המעגלים.");svg.setAttribute("aria-description",status.textContent);
   }
   roadInput.addEventListener("change",function(){stop();draw();});
-  stationsInput.addEventListener("input",function(){document.getElementById("quakeStationsValue").textContent=stationsInput.value+" מתוך 3";stationsInput.setAttribute("aria-valuetext",stationsInput.value+" תחנות מדידה");draw();});
+  stationsInput.addEventListener("input",function(){document.getElementById("quakeStationsValue").textContent=stationsInput.value+tr(" מתוך 3");stationsInput.setAttribute("aria-valuetext",stationsInput.value+tr(" תחנות מדידה"));draw();});
   svg.addEventListener("click",function(e){if(mode==="route"&&e.target.dataset.edge!==undefined){var edge=e.target.dataset.edge;roadInput.value=roadInput.value===edge?"-1":edge;draw();}});
 
-  function draw(){scene.setAttribute("transform",mathVisible?"translate(45 8) scale(.82)":"");if(mode==="pendulum")drawPendulum();else if(mode==="stock")drawStock();else if(mode==="chemical")drawChemical();else if(mode==="route")drawRoute();else drawEarth();}
+  function draw(){
+    // Reserve room for the explanation at either language and text size.
+    sceneScale=mathVisible?Math.max(.5,Math.min(.82,(mathPanel.offsetTop*520/(svg.clientWidth||520)-16)/330)):1;
+    sceneX=(1-sceneScale)*252;sceneY=mathVisible?8:0;
+    scene.setAttribute("transform",mathVisible?"translate("+sceneX+" "+sceneY+") scale("+sceneScale+")":"");
+    if(mode==="pendulum")drawPendulum();else if(mode==="stock")drawStock();else if(mode==="chemical")drawChemical();else if(mode==="route")drawRoute();else drawEarth();
+  }
   function updatePlay(){
-    var name=mode==="pendulum"?"המטוטלת":mode==="chemical"?"התגובה":"המסלולים";
-    var action=running?"עצירת "+name:(reduced&&mode==="pendulum"?"צעד אחד במטוטלת":mode==="stock"?"הגרלת מסלולים חדשים":mode==="chemical"?"הרצת התגובה מחדש":mode==="route"?"פתיחת כל הדרכים":mode==="earth"?"מוקד רעידה חדש":"הפעלת המטוטלת");
+    var name=mode==="pendulum"?tr("המטוטלת"):mode==="chemical"?tr("התגובה"):tr("המסלולים");
+    var action=running?tr("עצירת ")+name:(reduced&&mode==="pendulum"?tr("צעד אחד במטוטלת"):mode==="stock"?tr("הגרלת מסלולים חדשים"):mode==="chemical"?tr("הרצת התגובה מחדש"):mode==="route"?tr("פתיחת כל הדרכים"):mode==="earth"?tr("מוקד רעידה חדש"):tr("הפעלת המטוטלת"));
     play.setAttribute("aria-label",action);play.title=action;
     play.firstElementChild.textContent=running?"Ⅱ":(["stock","route","earth"].indexOf(mode)>=0||reduced?"↻":"▶");
   }
@@ -936,8 +1186,8 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
     if(mode==="pendulum"){
       var n=Math.max(1,Math.ceil(dt/.008));for(var i=0;i<n;i++)state=LabMath.pendulum(state,Number(lengthInput.value),dt/n,.045);
       trail.push(bob(state[0]));if(trail.length>110)trail.shift();
-    }else if(mode==="chemical"){elapsed=Math.min(10,elapsed+dt);if(elapsed>=10){stop();status.textContent="עברו 10 שניות. שנו את קצב התגובה ונסו שוב.";}}
-    else{elapsed=Math.min(6,elapsed+dt);if(elapsed>=6){stop();status.textContent="שלושה מסלולים אפשריים. הריצו שוב כדי לגלות אחרים.";}}
+    }else if(mode==="chemical"){elapsed=Math.min(10,elapsed+dt);if(elapsed>=10){stop();status.textContent=tr("עברו 10 שניות. שנו את קצב התגובה ונסו שוב.");}}
+    else{elapsed=Math.min(6,elapsed+dt);if(elapsed>=6){stop();status.textContent=tr("שלושה מסלולים אפשריים. הריצו שוב כדי לגלות אחרים.");}}
     draw();scheduleFrame();
   }
   function makeStock(){paths=[];for(var i=0;i<3;i++)paths.push(LabMath.stock(Number(volInput.value)/100,Math.random));var values=[100];paths.forEach(function(p){values=values.concat(p);});stockMin=0;stockMax=Math.max(200,Math.ceil(Math.max.apply(null,values)/100)*100);}
@@ -957,37 +1207,37 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
     document.querySelectorAll("[data-lab-mode]").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.labMode===mode));});
     var controls={pendulum:"pendControls",stock:"stockControls",chemical:"chemicalControls",route:"routeControls",earth:"earthControls"};
     Object.keys(controls).forEach(function(key){document.getElementById(controls[key]).hidden=mode!==key;});
-    document.getElementById("labSvgTitle").textContent=modeInfo[mode].title;document.getElementById("labSvgDesc").textContent=modeInfo[mode].hint+". אפשר לעצור את התנועה בכפתור העצירה ולהפעיל את כל הפקדים במקלדת.";
+    document.getElementById("labSvgTitle").textContent=tr(modeInfo[mode].title);document.getElementById("labSvgDesc").textContent=tr(modeInfo[mode].hint)+tr(". אפשר לעצור את התנועה בכפתור העצירה ולהפעיל את כל הפקדים במקלדת.");
     svg.setAttribute("tabindex",mode==="pendulum"?"0":"-1");
-    if(mode==="pendulum")document.getElementById("labSvgDesc").textContent="גררו את הכדור ושחררו. במקלדת: החצים משנים את זווית השחרור, ורווח מפעיל או עוצר. אפשר לשנות את אורך החוט במחוון.";
-    document.getElementById("labSubject").textContent=modeInfo[mode].subject;
-    hint.textContent=modeInfo[mode].hint;document.getElementById("labEquation").textContent=modeInfo[mode].equation;document.getElementById("labMathText").textContent=modeInfo[mode].text;
+    if(mode==="pendulum")document.getElementById("labSvgDesc").textContent=tr("גררו את הכדור ושחררו. במקלדת: החצים משנים את זווית השחרור, ורווח מפעיל או עוצר. אפשר לשנות את אורך החוט במחוון.");
+    document.getElementById("labSubject").textContent=tr(modeInfo[mode].subject);
+    hint.textContent=tr(modeInfo[mode].hint);document.getElementById("labEquation").textContent=modeInfo[mode].equation;document.getElementById("labMathText").textContent=tr(modeInfo[mode].text);
     prepare(["pendulum","stock","chemical"].indexOf(mode)>=0);
   }
   document.querySelectorAll("[data-lab-mode]").forEach(function(b){b.addEventListener("click",function(){setMode(b.dataset.labMode);});});
-  mathToggle.addEventListener("click",function(){mathVisible=!mathVisible;mathPanel.hidden=!mathVisible;mathToggle.setAttribute("aria-expanded",String(mathVisible));mathToggle.setAttribute("aria-label",mathVisible?"הסתרת המשוואה וההסבר":"איפה המתמטיקה? הצגת המשוואה וההסבר");draw();});
+  mathToggle.addEventListener("click",function(){mathVisible=!mathVisible;mathPanel.hidden=!mathVisible;mathToggle.setAttribute("aria-expanded",String(mathVisible));mathToggle.setAttribute("aria-label",mathVisible?tr("הסתרת המשוואה וההסבר"):tr("איפה המתמטיקה? הצגת המשוואה וההסבר"));draw();});
   play.addEventListener("click",function(){
     if(running){stop();return;}
     if(mode==="pendulum"){
       status.textContent="";
-      if(reduced){for(var i=0;i<120;i++)state=LabMath.pendulum(state,Number(lengthInput.value),1/120,.045);draw();status.textContent="המטוטלת התקדמה בשנייה אחת, ללא אנימציה.";}
+      if(reduced){for(var i=0;i<120;i++)state=LabMath.pendulum(state,Number(lengthInput.value),1/120,.045);draw();status.textContent=tr("המטוטלת התקדמה בשנייה אחת, ללא אנימציה.");}
       else{running=true;updatePlay();scheduleFrame();}
     }else if(mode==="route"){roadInput.value="-1";prepare(false);}
     else if(mode==="earth"){prepare(false);}
     else prepare(true);
   });
   function syncInputs(){
-    document.getElementById("pendLengthValue").textContent=Number(lengthInput.value).toFixed(1)+" מ׳";lengthInput.setAttribute("aria-valuetext",lengthInput.value+" מטרים");
-    document.getElementById("reactionRateValue").textContent=Number(rateInput.value).toFixed(1)+" /ש׳";rateInput.setAttribute("aria-valuetext",rateInput.value+" לשנייה");
-    document.getElementById("stockVolatilityValue").textContent=volInput.value+"%";volInput.setAttribute("aria-valuetext",volInput.value+" אחוזים");
+    document.getElementById("pendLengthValue").textContent=Number(lengthInput.value).toFixed(1)+tr(" מ׳");lengthInput.setAttribute("aria-valuetext",lengthInput.value+tr(" מטרים"));
+    document.getElementById("reactionRateValue").textContent=Number(rateInput.value).toFixed(1)+tr(" /ש׳");rateInput.setAttribute("aria-valuetext",rateInput.value+tr(" לשנייה"));
+    document.getElementById("stockVolatilityValue").textContent=volInput.value+"%";volInput.setAttribute("aria-valuetext",volInput.value+tr(" אחוזים"));
   }
   [lengthInput,volInput,rateInput].forEach(function(input){input.addEventListener("input",function(){syncInputs();prepare(mode==="pendulum"||mode==="chemical"||mode==="stock");});});
   svg.addEventListener("keydown",function(e){
     if(mode!=="pendulum")return;
-    if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();stop();trail=[];state=[Math.max(-1.2,Math.min(1.2,state[0]+(e.key==="ArrowRight"?.1:-.1))),0];draw();status.textContent="זווית שחרור: "+Math.round(state[0]*180/Math.PI)+" מעלות. לחצו רווח להפעלה.";}
+    if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();stop();trail=[];state=[Math.max(-1.2,Math.min(1.2,state[0]+(e.key==="ArrowRight"?.1:-.1))),0];draw();status.textContent=tr("זווית שחרור: ")+Math.round(state[0]*180/Math.PI)+tr(" מעלות. לחצו רווח להפעלה.");}
     if(e.key===" "){e.preventDefault();play.click();}
   });
-  function dragAngle(e){var box=svg.getBoundingClientRect(),x=(e.clientX-box.left)*520/box.width,y=(e.clientY-box.top)*365/box.height;if(mathVisible){x=(x-45)/.82;y=(y-8)/.82;}state=[Math.max(-1.2,Math.min(1.2,Math.atan2(x-252,y-86))),0];draw();}
+  function dragAngle(e){var box=svg.getBoundingClientRect(),x=(e.clientX-box.left)*520/box.width,y=(e.clientY-box.top)*365/box.height;if(mathVisible){x=(x-sceneX)/sceneScale;y=(y-sceneY)/sceneScale;}state=[Math.max(-1.2,Math.min(1.2,Math.atan2(x-252,y-86))),0];draw();}
   svg.addEventListener("pointerdown",function(e){if(mode!=="pendulum"||e.target.id!=="labBob")return;e.preventDefault();stop();dragging=true;trail=[];status.textContent="";svg.style.touchAction="none";svg.setPointerCapture(e.pointerId);dragAngle(e);});
   svg.addEventListener("pointermove",function(e){if(dragging)dragAngle(e);});
   function release(e){if(!dragging)return;dragging=false;svg.style.touchAction="pan-y";if(svg.hasPointerCapture(e.pointerId))svg.releasePointerCapture(e.pointerId);running=!reduced;updatePlay();scheduleFrame();}
@@ -999,6 +1249,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
   }
   btn.addEventListener("click",function(){reduced=!reduced;applyMotion();try{localStorage.setItem("edhack-motion",reduced?"reduced":"full");}catch(e){}});
   document.addEventListener("visibilitychange",function(){if(document.hidden)cancelFrame();else scheduleFrame();});
+  window.addEventListener("resize",draw);
   if("IntersectionObserver" in window)new IntersectionObserver(function(entries){visible=entries[0].isIntersecting;if(!visible)cancelFrame();else scheduleFrame();},{threshold:0}).observe(lab);
   syncInputs();setMode("pendulum");applyMotion();
 
@@ -1023,6 +1274,7 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
       document.getElementById(control.id).setAttribute("aria-pressed",String(enabled));
     });
     try{localStorage.setItem("edhack-accessibility",JSON.stringify(accessSettings));}catch(e){}
+    draw();
   }
   accessControls.forEach(function(control){
     document.getElementById(control.id).addEventListener("click",function(){
@@ -1041,10 +1293,27 @@ html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-
   });
   document.addEventListener("keydown",function(e){
     if(e.key === "Escape" && nav.classList.contains("show")){
-      nav.classList.remove("show");mb.setAttribute("aria-expanded","false");mb.textContent="תפריט";mb.focus();
+      nav.classList.remove("show");mb.setAttribute("aria-expanded","false");mb.textContent=tr("תפריט");mb.focus();
     }
   });
   applyAccess();
+
+  function refreshLocalizedUI(){
+    document.querySelectorAll("[data-register],[data-register-direct]").forEach(function(a){if(url){a.textContent=tr("להרשמה");a.setAttribute("aria-label",tr("להרשמה (נפתח בחלון חדש)"));}});
+    document.querySelectorAll("[data-reg-status-long]").forEach(function(el){el.textContent=tr(url?"ההרשמה פתוחה":"ההרשמה טרם נפתחה");});
+    document.querySelectorAll(".tb").forEach(function(el){el.title=tr("ייקבע בהמשך");});
+    mb.textContent=tr(nav.classList.contains("show")?"סגירה":"תפריט");
+    document.getElementById("labSvgTitle").textContent=tr(modeInfo[mode].title);
+    document.getElementById("labSvgDesc").textContent=mode==="pendulum"?tr("גררו את הכדור ושחררו. במקלדת: החצים משנים את זווית השחרור, ורווח מפעיל או עוצר. אפשר לשנות את אורך החוט במחוון."):tr(modeInfo[mode].hint)+tr(". אפשר לעצור את התנועה בכפתור העצירה ולהפעיל את כל הפקדים במקלדת.");
+    document.getElementById("labSubject").textContent=tr(modeInfo[mode].subject);
+    hint.textContent=tr(modeInfo[mode].hint);document.getElementById("labMathText").textContent=tr(modeInfo[mode].text);
+    mathToggle.setAttribute("aria-label",tr(mathVisible?"הסתרת המשוואה וההסבר":"איפה המתמטיקה? הצגת המשוואה וההסבר"));
+    syncInputs();document.getElementById("quakeStationsValue").textContent=stationsInput.value+tr(" מתוך 3");stationsInput.setAttribute("aria-valuetext",stationsInput.value+tr(" תחנות מדידה"));
+    status.textContent=mode==="chemical"&&elapsed>=10?tr("עברו 10 שניות. שנו את קצב התגובה ונסו שוב."):mode==="stock"&&elapsed>=6?tr("שלושה מסלולים אפשריים. הריצו שוב כדי לגלות אחרים."):"";
+    updatePlay();draw();
+  }
+  applyLanguage(false);
+  document.getElementById("languageBtn").addEventListener("click",function(){language=language==="he"?"en":"he";applyLanguage(true);});
 
 })();
 </script>
