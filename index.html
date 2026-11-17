@@ -104,22 +104,6 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
 .when{font-size:0.96875rem;margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 24px}
 
-.fig{margin:0;background:var(--deeper);border:1px solid #d4e86a55;border-radius:14px;padding:20px 22px 22px;box-shadow:0 18px 40px #00000033}
-.fig .eqn{font-weight:700;font-size:1.5rem;direction:ltr;text-align:center;letter-spacing:.06em;color:var(--accent)}
-.fig canvas{display:block;width:100%;height:auto;aspect-ratio:600/340;border-radius:8px;background:#ffffff08;margin-top:12px}
-.fig .stats{display:flex;justify-content:space-between;gap:16px;margin-top:14px;direction:ltr;font-weight:600;font-size:1.75rem;line-height:1}
-.fig .stats > span{display:flex;align-items:center;gap:8px}
-.fig .stats i{width:12px;height:12px;border-radius:50%;display:inline-block;background:var(--ivory)}
-.fig .stats .b i{background:var(--accent)}
-.fig .stats .b{color:var(--accent)}
-.fig .bar{height:6px;border-radius:3px;overflow:hidden;background:var(--accent);margin-top:10px;direction:ltr}
-.fig .bar div{height:100%;background:var(--ivory);width:40%}
-.fig .ctl{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.fig .ctl button{background:none;border:1.5px solid #f2f5ec88;color:var(--ivory);border-radius:8px;min-height:42px;padding:6px 16px;font-weight:600;font-size:0.9375rem;cursor:pointer}
-.fig .ctl button:first-child{background:var(--accent);border-color:var(--accent);color:var(--deeper)}
-.fig .ctl button:disabled{opacity:.45;cursor:default}
-.fig figcaption{font-size:0.9375rem;line-height:1.6;margin-top:14px;color:#f2f5ecd9}
-
 /* פס עובדות */
 .band{background:var(--accent);color:var(--deeper)}
 .band dl{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -290,11 +274,7 @@ footer button[aria-pressed="true"]{background:var(--accent);color:var(--deeper);
 #pilot .row3{grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px;margin-top:22px}
 #pilot .cell{border-color:#092a3655;background:#ffffff33}
 #pilot a{color:var(--deeper)}
-.example{padding-block:44px}
-.example .fig{max-width:420px;width:100%;justify-self:end;box-shadow:none}
-.example .fig .ctl button:first-child{background:transparent;color:var(--ivory);border-color:#f2f5ec88}
-.example .lead{margin-bottom:16px}
-@media(max-width:900px){.chs{grid-template-columns:repeat(3,minmax(0,1fr))}.ch{padding:18px}.ch h3{font-size:1.5rem}.example .fig{justify-self:center}}
+@media(max-width:900px){.chs{grid-template-columns:repeat(3,minmax(0,1fr))}.ch{padding:18px}.ch h3{font-size:1.5rem}}
 @media(max-width:760px){
   .hero{padding-block:24px 18px}.hero-logo{height:38px;margin-bottom:18px}
   .hero h1{font-size:clamp(58px,20vw,88px);gap:6px;flex-wrap:wrap;justify-content:flex-start}
@@ -303,7 +283,6 @@ footer button[aria-pressed="true"]{background:var(--accent);color:var(--deeper);
   .challenges{padding-block:20px 32px}.challenges .h2 h2{font-size:1.875rem}
   .chs{grid-template-columns:minmax(0,1fr);gap:16px}.ch{padding:22px}.ch h3{font-size:1.75rem}
   #pilot{padding-block:32px}#pilot .row3{grid-template-columns:minmax(0,1fr)}
-  .example{padding-block:32px}.example .fig{max-width:100%}
 }
 
 
@@ -346,12 +325,6 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 .hero .tagline{color:var(--accent);font-size:1.1875rem;font-weight:600;margin-top:14px}
 .hero .school-brand-text strong{color:var(--accent)}
 .challenges .challenge-intro{margin-bottom:12px}
-.challenge-guide{max-width:51em;margin-bottom:24px;font-size:1rem;color:var(--ivory)}
-.galton-stats{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:1rem;font-weight:600;line-height:1.4}
-.galton-stats #ballCount{color:var(--accent)}
-.normal-legend{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:400}
-.normal-legend i{display:block;width:24px;height:2px;background:#fff}
-.galton-progress{margin-top:6px;font-size:.8125rem;color:#f2f5ecd9}
 
 /* EDHACK: mathematical identity and interactive challenge cards. */
 .sigma-e{height:.73em;width:.69em;display:inline-block;vertical-align:-.015em;overflow:visible;flex:none}
@@ -369,8 +342,6 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 .hero .what{font-size:clamp(24px,2.35vw,34px);line-height:1.3}
 .hero .tagline{margin-top:18px;font-size:1.1875rem}
 .hero .pitch{max-width:39em;font-size:1.0625rem;line-height:1.75}
-.hero-art{width:100%;max-width:550px;justify-self:center;pointer-events:none}
-.hero-art svg{display:block;width:100%;height:auto;overflow:visible}
 .challenges{background:var(--paper);color:var(--deep);padding-block:34px 38px}
 .challenges .h2 h2{font-size:clamp(30px,3vw,40px)}
 .challenges .challenge-intro{color:var(--muted);max-width:65em;font-size:1rem;line-height:1.7;margin-bottom:26px}
@@ -400,7 +371,6 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 .challenges .cta{margin-top:27px}
 html[data-contrast="high"] .ch.flip-card{--tone:#fff}
 html[data-contrast="high"] .card-face{border:2px solid #000;color:#000}
-html[data-contrast="high"] .hero-art{display:none}
 html[data-contrast="high"] .hero .wrap{grid-template-columns:minmax(0,1fr)}
 html[data-text="large"] .hero .wrap{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
 html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
@@ -415,7 +385,6 @@ html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
   .hero .what{font-size:1.45rem;margin-top:14px}
   .hero .tagline{font-size:1.0625rem;margin-top:14px}
   .hero .pitch{font-size:1rem;line-height:1.7}
-  .hero-art{max-width:280px;margin-block:-5px -8px}
   .challenges{padding-block:28px 32px}
   .challenges .challenge-intro{font-size:.9375rem;margin-bottom:22px}
   .chs{gap:22px}
@@ -426,6 +395,41 @@ html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
   .challenges .cta .btn{flex:1 1 auto}
 }
 @media print{.card-turn,.flip-card.is-flipped .card-turn{display:block;transform:none}.card-face{position:static;transform:none;backface-visibility:visible}.card-open,.card-close{display:none}}
+
+.lab-subject{text-align:center;font-size:.75rem;font-weight:600;color:var(--accent);margin-top:5px}
+.lab-controls select{min-width:0;max-width:100%;min-height:36px;border:1px solid #bfc8ff77;border-radius:8px;padding:5px 10px;background:var(--deeper);color:var(--ivory);font-size:.8125rem;font-family:var(--font)}
+/* The hero illustration is an interactive mathematical playground. */
+.hero-lab{width:100%;max-width:520px;min-width:0;justify-self:center;margin:0;color:var(--ivory)}
+.lab-stage{position:relative;width:100%;aspect-ratio:520/365}
+.lab-stage>svg{display:block;width:100%;height:auto;overflow:visible;touch-action:pan-y}
+.lab-math-control{position:absolute;top:8%;right:6%;width:16%;text-align:center}
+#labMathToggle{width:100%;aspect-ratio:1;min-width:48px;min-height:48px;border:0;border-radius:22%;background:var(--accent);color:var(--deeper);transform:rotate(12deg);cursor:pointer;font-size:clamp(36px,4.2vw,60px);line-height:1}
+#labMathToggle span{display:block;transform:rotate(-12deg)}
+#labMathToggle[aria-expanded="true"]{box-shadow:0 0 0 3px var(--ivory)}
+.lab-math-label{display:block;position:relative;width:155%;margin-inline:-27.5%;margin-top:12px;font-size:.8125rem;font-weight:500;white-space:nowrap}
+.lab-play{position:absolute;bottom:9%;left:3%;width:16%;aspect-ratio:1;min-width:48px;min-height:48px;border:0;border-radius:50%;background:#f5b19d;color:#092a36;cursor:pointer;font-size:clamp(30px,3vw,44px);line-height:1}
+.lab-play span{display:block}
+.lab-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;margin:0 auto 8px;width:fit-content;max-width:100%;padding:4px;border:1px solid #bfc8ff40;border-radius:30px;background:#092a3677}
+.lab-tabs button{border:0;border-radius:24px;min-height:44px;padding:7px 12px;font-size:.8125rem;color:var(--ivory);background:transparent;cursor:pointer}
+.lab-tabs button[aria-pressed="true"]{background:#bfc8ff;color:#092a36;font-weight:600}
+.lab-controls{display:grid;grid-template-columns:auto minmax(80px,1fr);gap:16px;align-items:center;max-width:390px;margin:auto;min-height:40px;padding-inline:10px}
+.lab-controls label{font-size:.8125rem;white-space:nowrap}
+.lab-controls output{display:inline-block;min-width:44px;color:var(--accent);margin-inline-start:7px;font-variant-numeric:tabular-nums}
+.lab-controls input{width:100%;margin:0;min-width:0;height:32px;accent-color:var(--accent);cursor:pointer}
+.lab-controls-pair{grid-template-columns:1fr 1fr;gap:24px}
+.lab-controls-pair>div{min-width:0;display:flex;align-items:center;gap:8px}
+.lab-controls-pair label{display:flex;flex-direction:column;line-height:1.4}.lab-controls-pair output{margin:0}
+.hero-lab figcaption{text-align:center;font-size:.875rem;color:#f2f5ece0;line-height:1.5;margin-top:3px}
+.lab-status{text-align:center;font-size:.8125rem;line-height:1.4;color:var(--accent);min-height:1.4em;margin-top:3px}
+.lab-math-panel{position:absolute;bottom:1%;left:18%;right:5%;padding:9px 12px;border:1px solid #d4e86a66;border-radius:12px;background:#092a36f2;color:#f2f5ec;font-size:.8125rem;line-height:1.45;box-shadow:0 8px 24px #092a3633}
+.lab-equation{font-family:Georgia,'Times New Roman',serif;text-align:center;font-size:1.25rem;line-height:1.4;color:#d4e86a;margin-bottom:3px}
+#labBob{cursor:grab;touch-action:none}#labBob:active{cursor:grabbing}
+html[data-contrast="high"] .hero-lab{display:block}html[data-contrast="high"] .hero .wrap{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+html[data-contrast="high"] .lab-tabs button[aria-pressed="true"]{background:#fff;color:#000}
+html[data-contrast="high"] .lab-controls label,html[data-contrast="high"] .lab-controls output,html[data-contrast="high"] .hero-lab figcaption{color:#fff}
+html[data-text="large"] .lab-math-control{right:8%}html[data-text="large"] .lab-math-label{font-size:.7rem}
+@media(max-width:1100px) and (min-width:761px){.hero .wrap{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:22px}.hero h1{font-size:clamp(46px,5.7vw,70px)}.hero .what{font-size:1.6rem}.lab-math-label{font-size:.65rem}.lab-tabs button{padding-inline:9px}.lab-controls{gap:8px}.lab-controls label{font-size:.75rem}}
+@media(max-width:760px){.hero-lab{max-width:400px}.lab-tabs{width:100%;border-radius:20px}.lab-tabs button{flex:0 0 30%;padding-inline:5px}.lab-math-label{font-size:.6875rem}.lab-controls{padding-inline:6px;gap:12px}.lab-tabs button{padding-inline:10px}.lab-math-panel{left:22%;right:2%;font-size:.75rem}.lab-equation{font-size:1.1rem}.hero-lab figcaption{font-size:.8125rem}html[data-contrast="high"] .hero .wrap{grid-template-columns:minmax(0,1fr)}html[data-text="large"] .lab-controls{grid-template-columns:1fr;gap:0}html[data-text="large"] .lab-controls-pair{grid-template-columns:1fr 1fr}html[data-text="large"] .lab-tabs button{padding-inline:9px}html[data-text="large"] .lab-math-panel{font-size:.7rem}}
 
 </style>
 </head>
@@ -462,21 +466,44 @@ html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
     <p class="tagline">הכל מתחיל במתמטיקה.</p>
     <p class="pitch">יומיים לבנות כלים שהופכים את המתמטיקה למעניינת, מובנת ורלוונטית, בכיתה, בתרגול ובכל תחום שנשען עליה: פיזיקה, כימיה, מדעי המחשב ועוד.</p>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 520 365" focusable="false">
-        <defs><linearGradient id="orbFill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#687bc7"/><stop offset="1" stop-color="#bfc8ff"/></linearGradient></defs>
-        <circle cx="252" cy="185" r="150" fill="url(#orbFill)"/>
-        <circle cx="252" cy="185" r="175" fill="none" stroke="#bfc8ff" stroke-opacity=".22"/>
-        <path d="M54 260C124 320 432 306 469 104" fill="none" stroke="#d4e86a" stroke-width="2"/>
-        <circle cx="73" cy="270" r="43" fill="#f5b19d"/>
-        <path d="M55 270H91M73 252V288" stroke="#092a36" stroke-width="5"/>
-        <g fill="none" stroke="#102b49" stroke-width="1.2" opacity=".85"><circle r="38" transform="matrix(0.9400 0.0000 .221 -.76 357.280 185.000)"/><circle r="38" transform="matrix(0.9748 0.1682 .221 -.76 361.183 203.842)"/><circle r="38" transform="matrix(0.9433 0.3250 .221 -.76 357.646 221.400)"/><circle r="38" transform="matrix(0.8474 0.4596 .221 -.76 346.908 236.477)"/><circle r="38" transform="matrix(0.6938 0.5629 .221 -.76 329.703 248.047)"/><circle r="38" transform="matrix(0.4929 0.6279 .221 -.76 307.203 255.319)"/><circle r="38" transform="matrix(0.2584 0.6500 .221 -.76 280.941 257.800)"/><circle r="38" transform="matrix(0.0063 0.6279 .221 -.76 252.706 255.319)"/><circle r="38" transform="matrix(-0.2462 0.5629 .221 -.76 224.423 248.047)"/><circle r="38" transform="matrix(-0.4820 0.4596 .221 -.76 198.020 236.477)"/><circle r="38" transform="matrix(-0.6849 0.3250 .221 -.76 175.295 221.400)"/><circle r="38" transform="matrix(-0.8411 0.1682 .221 -.76 157.798 203.842)"/><circle r="38" transform="matrix(-0.9400 0.0000 .221 -.76 146.720 185.000)"/><circle r="38" transform="matrix(-0.9748 -0.1682 .221 -.76 142.817 166.158)"/><circle r="38" transform="matrix(-0.9433 -0.3250 .221 -.76 146.354 148.600)"/><circle r="38" transform="matrix(-0.8474 -0.4596 .221 -.76 157.092 133.523)"/><circle r="38" transform="matrix(-0.6938 -0.5629 .221 -.76 174.297 121.953)"/><circle r="38" transform="matrix(-0.4929 -0.6279 .221 -.76 196.797 114.681)"/><circle r="38" transform="matrix(-0.2584 -0.6500 .221 -.76 223.059 112.200)"/><circle r="38" transform="matrix(-0.0063 -0.6279 .221 -.76 251.294 114.681)"/><circle r="38" transform="matrix(0.2462 -0.5629 .221 -.76 279.577 121.953)"/><circle r="38" transform="matrix(0.4820 -0.4596 .221 -.76 305.980 133.523)"/><circle r="38" transform="matrix(0.6849 -0.3250 .221 -.76 328.705 148.600)"/><circle r="38" transform="matrix(0.8411 -0.1682 .221 -.76 346.202 166.158)"/><circle r="150.000" transform="matrix(.94 0 .2584 .65 252.000 185.000)"/><circle r="144.909" transform="matrix(.94 0 .2584 .65 256.199 170.560)"/><circle r="131.000" transform="matrix(.94 0 .2584 .65 259.273 159.989)"/><circle r="112.000" transform="matrix(.94 0 .2584 .65 260.398 156.120)"/><circle r="93.000" transform="matrix(.94 0 .2584 .65 259.273 159.989)"/><circle r="79.091" transform="matrix(.94 0 .2584 .65 256.199 170.560)"/><circle r="74.000" transform="matrix(.94 0 .2584 .65 252.000 185.000)"/><circle r="79.091" transform="matrix(.94 0 .2584 .65 247.801 199.440)"/><circle r="93.000" transform="matrix(.94 0 .2584 .65 244.727 210.011)"/><circle r="112.000" transform="matrix(.94 0 .2584 .65 243.602 213.880)"/><circle r="131.000" transform="matrix(.94 0 .2584 .65 244.727 210.011)"/><circle r="144.909" transform="matrix(.94 0 .2584 .65 247.801 199.440)"/></g>
-        <rect x="386" y="35" width="85" height="85" rx="19" fill="#d4e86a" transform="rotate(13 428 77)"/>
-        <g transform="translate(405 52) scale(.65) rotate(13 34 36)" fill="none" stroke="#092a36" stroke-width="8" stroke-linejoin="miter"><path d="M59 7H10L24 36 10 65H59M24 36H45"/></g>
-        <circle cx="439" cy="279" r="7" fill="#d4e86a"/>
-        <path d="M157 36H175M166 27V45" stroke="#f2f5ec" stroke-width="2"/>
-      </svg>
-    </div>
+    <figure class="hero-lab" aria-label="איפה המתמטיקה? חמש התנסויות במדעים ובמתמטיקה">
+      <div class="lab-stage">
+        <svg id="labSvg" viewBox="0 0 520 365" role="img" aria-labelledby="labSvgTitle labSvgDesc">
+          <title id="labSvgTitle">מטוטלת בתנועה</title>
+          <desc id="labSvgDesc">גררו את הכדור ושחררו, או שנו את אורך החוט באמצעות המחוון.</desc>
+          <defs><linearGradient id="labOrb" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7d8ccd"/><stop offset="1" stop-color="#bfc8ff"/></linearGradient><clipPath id="labClip"><circle cx="252" cy="185" r="150"/></clipPath></defs>
+          <circle cx="252" cy="185" r="175" fill="none" stroke="#bfc8ff" stroke-opacity=".22"/>
+          <circle cx="252" cy="185" r="150" fill="url(#labOrb)"/>
+          <path d="M54 260C124 320 432 306 469 104" fill="none" stroke="#d4e86a" stroke-width="2" opacity=".8"/>
+          <path d="M157 36H175M166 27V45" stroke="#f2f5ec" stroke-width="2"/>
+          <circle cx="439" cy="279" r="7" fill="#d4e86a"/>
+          <g id="labScene" clip-path="url(#labClip)">
+            <path d="M189 76H315" stroke="#092a36" stroke-width="3"/>
+            <path d="M252 86L336 188" stroke="#092a36" stroke-width="3"/>
+            <circle cx="336" cy="188" r="19" fill="#f5b19d" stroke="#092a36" stroke-width="2"/>
+          </g>
+        </svg>
+        <div class="lab-math-control"><button id="labMathToggle" type="button" aria-expanded="false" aria-controls="labMathPanel" aria-label="איפה המתמטיקה? הצגת המשוואה וההסבר"><span aria-hidden="true">Σ</span></button><span class="lab-math-label" aria-hidden="true">איפה המתמטיקה?</span></div>
+        <button id="labPlay" class="lab-play" type="button" aria-label="עצירת המטוטלת"><span aria-hidden="true">Ⅱ</span></button>
+        <div id="labMathPanel" class="lab-math-panel" hidden><p id="labEquation" class="lab-equation" dir="ltr"></p><p id="labMathText"></p></div>
+      </div>
+      <div class="lab-tabs" role="group" aria-label="בחירת תופעה">
+        <button type="button" data-lab-mode="pendulum" aria-pressed="true">מטוטלת</button>
+        <button type="button" data-lab-mode="stock" aria-pressed="false">מניה</button>
+        <button type="button" data-lab-mode="chemical" aria-pressed="false">תגובה כימית</button>
+        <button type="button" data-lab-mode="route" aria-pressed="false">מסלול קצר</button>
+        <button type="button" data-lab-mode="earth" aria-pressed="false">רעידת אדמה</button>
+      </div>
+      <div class="lab-controls" id="pendControls"><label for="pendLength">אורך החוט <output id="pendLengthValue" for="pendLength">1.8 מ׳</output></label><input id="pendLength" type="range" min="1" max="2.4" step="0.1" value="1.8" dir="ltr" aria-valuetext="1.8 מטרים"></div>
+      <div class="lab-controls" id="stockControls" hidden><label for="stockVolatility">תנודתיות <output id="stockVolatilityValue" for="stockVolatility">30%</output></label><input id="stockVolatility" type="range" min="10" max="60" step="5" value="30" dir="ltr" aria-valuetext="30 אחוזים"></div>
+      <div class="lab-controls" id="chemicalControls" hidden><label for="reactionRate">קצב התגובה <output id="reactionRateValue" for="reactionRate">0.3 /ש׳</output></label><input id="reactionRate" type="range" min="0.1" max="1" step="0.1" value="0.3" dir="ltr"></div>
+      <div class="lab-controls" id="routeControls" hidden><label for="blockedRoad">חסימת דרך</label><select id="blockedRoad"><option value="-1">כל הדרכים פתוחות</option></select></div>
+      <div class="lab-controls" id="earthControls" hidden><label for="quakeStations">תחנות מדידה <output id="quakeStationsValue" for="quakeStations">1 מתוך 3</output></label><input id="quakeStations" type="range" min="1" max="3" step="1" value="1" dir="ltr"></div>
+      <p id="labSubject" class="lab-subject">פיזיקה</p>
+      <figcaption id="labHint">גררו את הכדור ושחררו</figcaption>
+      <p id="labStatus" class="lab-status" role="status" aria-live="polite"></p>
+      <noscript><p class="lab-status">להתנסות האינטראקטיבית יש להפעיל JavaScript בדפדפן.</p></noscript>
+    </figure>
   </div>
 </section>
 
@@ -510,13 +537,13 @@ html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
             <span class="card-index">אתגר 2</span>
             <svg class="card-art" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="18" y="18" width="48" height="48" rx="8" transform="rotate(-12 42 42)"/><circle cx="70" cy="61" r="27"/><path d="m58 53 19 9-19 9Z"/></svg>
             <h3 id="c2Title">לשחק את המתמטיקה</h3>
-            <p class="kind">משחקים, אומנות ואנימציה שממחישים רעיון מתמטי</p>
+            <p class="kind">משחקים וחוויות אינטראקטיביות שהופכים את הלמידה למשחקית</p>
             <button class="card-open" type="button" aria-expanded="false" aria-controls="c2Details" aria-labelledby="c2Title c2Action"><span id="c2Action">לפרטי האתגר <span aria-hidden="true">↶</span></span></button>
           </div>
           <div class="card-face card-back" id="c2Details">
             <span class="card-index">אתגר 2</span>
             <h3>לשחק את המתמטיקה</h3>
-            <p class="t">רעיון מתמטי אחד, שמגלים ומבינים דרך משחק, התנסות או המחשה יצירתית.</p>
+            <p class="t">משחק, פעילות או כלי שהופכים את לימוד המתמטיקה לחוויה שמעודדת להשתתף, להתנסות ולהבין. ממשחקי זיכרון והתאמות ועד חידות, סימולציות ועולמות משחק.</p>
             <button type="button" class="card-close">חזרה לכותרת <span aria-hidden="true">↶</span></button>
           </div>
         </div>
@@ -582,29 +609,6 @@ html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
       <p class="reg-instructions">כל משתתפ.ת ממלא.ת טופס. יש לכם צוות? תאמו מראש שם צוות משותף. אין צוות? ספרו לנו במה תרצו לתרום ואנחנו נדאג לכם לציוות.</p>
       <p class="cta" data-reg-cta hidden><a class="btn btn-deep" data-register-direct href="#register">להרשמה</a></p>
     </div>
-  </div>
-</section>
-
-<section class="sec sec-deeper example" aria-labelledby="exampleTitle">
-  <div class="wrap two">
-    <div>
-      <div class="h2"><h2 id="exampleTitle">המחשה של רעיון מתמטי</h2></div>
-      <p class="lead">המחשה קטנה של רעיון מתמטי. מכאן אפשר לחשוב בגדול: איך בונים סביב רעיון כזה משחק למידה, חוויית שיעור או כלי שמשנה את הדרך שבה מבינים ומתרגלים?</p>
-    </div>
-    <figure class="fig">
-      <div class="eqn" dir="ltr">n = 10, &nbsp;p = ½</div>
-      <canvas id="eq" width="600" height="340" role="img" aria-label="לוח גלטון: כדורים נופלים בין יתדות, פונים ימינה או שמאלה באקראי, ונערמים בצורת פעמון" aria-describedby="galtonCaption"></canvas>
-      <div class="galton-stats">
-        <span><span id="ballCount" class="nums">250</span> כדורים בסך הכל</span>
-        <span class="normal-legend"><i aria-hidden="true"></i>קירוב נורמלי</span>
-      </div>
-      <p id="ballProgress" class="galton-progress">נחתו 0 מתוך 250</p>
-      <div class="ctl">
-        <button type="button" id="addBalls">הוסיפו 100 כדורים</button>
-        <button type="button" id="resetGalton">התחילו מחדש</button>
-      </div>
-      <figcaption id="galtonCaption">לוח גלטון. כל כדור פונה ימינה או שמאלה באקראי, וביחד הכדורים יוצרים צורת פעמון. העקומה הלבנה מציגה קירוב נורמלי להתפלגות שמתקבלת.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -787,155 +791,217 @@ html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
     });
   });
 
-  /* Galton board: ten independent Bernoulli choices per ball. */
-  var cv = document.getElementById("eq"), ctx = cv.getContext("2d");
-  var W = 600, H = 340, ROWS = 10, DX = 40, DY = 18, TOP = 28, BASE = 316;
-  var START = 250, ADD = 100, INTERVAL = 45, SEGMENT = 145;
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  cv.width = W*dpr; cv.height = H*dpr; ctx.scale(dpr, dpr);
-  var IVORY = "#F2F5EC", ACCENT = "#D4E86A";
-  var bins = Array(ROWS+1).fill(0), plannedBins = Array(ROWS+1).fill(0);
-  var active = [], pending = [], landed = 0, total = 0, axisMax = 25;
-  var raf = null, lastTime = null, launchClock = 0;
-  var counter = document.getElementById("ballCount");
-  var progress = document.getElementById("ballProgress");
-  var addBtn = document.getElementById("addBalls"), resetBtn = document.getElementById("resetGalton");
-  var root = document.documentElement, btn = document.getElementById("motionBtn");
-  var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var saved = null; try{ saved = localStorage.getItem("edhack-motion"); }catch(e){}
-  var reduced = saved ? saved === "reduced" : motionQuery.matches;
+  /* LAB_MATH_START: deterministic mechanics and an explicitly stochastic stock model. */
+  var LabMath = (function(){
+    var g=9.81;
+    function pendulum(state,length,dt,damping){
+      function f(s){return [s[1],-g/length*Math.sin(s[0])-damping*s[1]];}
+      function add(s,k,h){return [s[0]+k[0]*h,s[1]+k[1]*h];}
+      var a=f(state),b=f(add(state,a,dt/2)),c=f(add(state,b,dt/2)),d=f(add(state,c,dt));
+      return [state[0]+dt*(a[0]+2*b[0]+2*c[0]+d[0])/6,state[1]+dt*(a[1]+2*b[1]+2*c[1]+d[1])/6];
+    }
+    function stock(volatility,random){
+      var path=[100],dt=1/120;
+      for(var i=0;i<120;i++){
+        var u=Math.max(1e-12,random()),z=Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*random());
+        path.push(path[i]*Math.exp((.08-volatility*volatility/2)*dt+volatility*Math.sqrt(dt)*z));
+      }
+      return path;
+    }
+    function chemical(rate,time){var a=Math.exp(-rate*time);return {a:a,b:1-a};}
+    function shortest(nodes,edges,blocked){
+      var distances=nodes.map(function(){return Infinity;}),previous=nodes.map(function(){return -1;}),visited=[];distances[0]=0;
+      for(var step=0;step<nodes.length;step++){
+        var u=-1;for(var i=0;i<nodes.length;i++)if(!visited[i]&&(u<0||distances[i]<distances[u]))u=i;
+        if(u<0||distances[u]===Infinity)break;visited[u]=true;
+        edges.forEach(function(e,index){if(index===blocked)return;var v=e[0]===u?e[1]:e[1]===u?e[0]:-1;if(v>=0&&distances[u]+e[2]<distances[v]){distances[v]=distances[u]+e[2];previous[v]=u;}});
+      }
+      var target=nodes.length-1,path=[];if(distances[target]<Infinity)for(var n=target;n>=0;n=previous[n])path.unshift(n);
+      return {path:path,cost:distances[target]};
+    }
+    function distance(a,b){return Math.hypot(a[0]-b[0],a[1]-b[1]);}
+    return {pendulum:pendulum,stock:stock,chemical:chemical,shortest:shortest,distance:distance};
+  })();
+  /* LAB_MATH_END */
 
-  function makeBall(){
-    var rights = 0, points = [{x:W/2,y:4},{x:W/2,y:TOP-6}];
-    for(var row=0;row<ROWS;row++){
-      if(Math.random()<0.5) rights++;
-      points.push({x:W/2+(rights-(row+1)/2)*DX,y:TOP+(row+1)*DY-6});
+  /* Hero playground: one active scene, shared controls and a mathematical reveal. */
+  var root=document.documentElement,btn=document.getElementById("motionBtn");
+  var motionQuery=window.matchMedia("(prefers-reduced-motion: reduce)");
+  var saved=null;try{saved=localStorage.getItem("edhack-motion");}catch(e){}
+  var reduced=saved?saved==="reduced":motionQuery.matches;
+  var lab=document.querySelector(".hero-lab"),svg=document.getElementById("labSvg"),scene=document.getElementById("labScene");
+  var play=document.getElementById("labPlay"),mathToggle=document.getElementById("labMathToggle"),mathPanel=document.getElementById("labMathPanel");
+  var hint=document.getElementById("labHint"),status=document.getElementById("labStatus");
+  var lengthInput=document.getElementById("pendLength"),volInput=document.getElementById("stockVolatility"),rateInput=document.getElementById("reactionRate"),roadInput=document.getElementById("blockedRoad"),stationsInput=document.getElementById("quakeStations");
+  var mode="pendulum",mathVisible=false,running=false,raf=null,last=null,visible=true;
+  var state=[.72,0],trail=[],elapsed=0,paths=[],stockMin=50,stockMax=180,dragging=false;
+  var ink="#092a36",peach="#f5b19d",lime="#d4e86a";
+  var modeInfo={
+    pendulum:{subject:"פיזיקה",title:"מטוטלת בתנועה",hint:"גררו את הכדור ושחררו",equation:"θ″ = −(g/L) sin θ − cθ′",text:"אורך החוט וכוח הכבידה קובעים את התנועה; החיכוך מאט אותה."},
+
+    stock:{subject:"מתמטיקה שימושית",title:"מסלולים אפשריים של מניה מדומה",hint:"מניה מדומה · אותה התחלה, מסלולים שונים",equation:"dS = μS dt + σS dW",text:"מגמה ותנודתיות יוצרות מסלולים אפשריים במודל עם אקראיות."},
+    chemical:{subject:"כימיה",title:"תגובה כימית מסדר ראשון",hint:"שנו את הקצב וצפו ב־A הופך ל־B",equation:"A′ = −kA,   B′ = kA",text:"במודל הזה, קצב הפיכת A ל־B יחסי לכמות A שנותרה."},
+    route:{subject:"מדעי המחשב",title:"מציאת מסלול קצר ברשת",hint:"לחצו על דרך כדי לחסום אותה, או בחרו ברשימה",equation:"min ∑ w(e)",text:"המשקלים הם מרחקים. האלגוריתם מוצא מסלול שסכומם בו מינימלי."},
+    earth:{subject:"מדעי כדור הארץ",title:"איתור מוקד רעידת אדמה",hint:"הוסיפו תחנות כדי לגלות את המוקד",equation:"(x − xᵢ)² + (y − yᵢ)² = rᵢ²",text:"במודל המפושט, כל תחנה נותנת מרחק. חיתוך המעגלים מגלה את המיקום."}
+  };
+  function circle(x,y,r,fill,extra){return '<circle cx="'+x.toFixed(2)+'" cy="'+y.toFixed(2)+'" r="'+r+'" fill="'+fill+'" '+(extra||'')+'/>';}
+  function line(x1,y1,x2,y2,color,width,extra){return '<path d="M'+x1+' '+y1+'L'+x2+' '+y2+'" fill="none" stroke="'+color+'" stroke-width="'+width+'" '+(extra||'')+'/>';}
+  function label(x,y,text,extra){return '<text x="'+x+'" y="'+y+'" fill="'+ink+'" font-family="Arial,sans-serif" direction="ltr" '+((extra||'').indexOf('font-size')<0?'font-size="15" ':'')+((extra||'').indexOf('text-anchor')<0?'text-anchor="middle" ':'')+(extra||'')+'>'+text+'</text>';}
+  function pathLine(points,color,width,extra){return '<path d="'+points.map(function(p,i){return (i?'L':'M')+p[0].toFixed(2)+' '+p[1].toFixed(2);}).join(' ')+'" fill="none" stroke="'+color+'" stroke-width="'+width+'" stroke-linecap="round" stroke-linejoin="round" '+(extra||'')+'/>';}
+  function bob(theta){var l=Number(lengthInput.value)*68;return [252+l*Math.sin(theta),86+l*Math.cos(theta)];}
+  function drawPendulum(){
+    var p=bob(state[0]),l=Number(lengthInput.value)*68,arc=[];
+    for(var a=-1.15;a<=1.16;a+=.035)arc.push(bob(a));
+    var s=pathLine(arc,ink,1,'opacity=".18"')+line(198,76,306,76,ink,4)+line(252,76,252,86,ink,3);
+    if(trail.length>1)s+=pathLine(trail,ink,2,'opacity=".25"');
+    if(mathVisible){
+      s+=line(252,86,252,86+l,ink,1.2,'stroke-dasharray="4 5" opacity=".55"');
+      s+=label((252+p[0])/2+18,(86+p[1])/2+10,"L");
+      var anglePoints=[];for(var j=0;j<=20;j++){var t=state[0]*j/20;anglePoints.push([252+40*Math.sin(t),86+40*Math.cos(t)]);}
+      s+=pathLine(anglePoints,ink,1.5)+label(220,126,"θ");
     }
-    return {bin:rights,points:points,age:0};
+    s+=line(252,86,p[0],p[1],ink,3)+circle(252,86,5,ink);
+    s+=circle(p[0],p[1],22,peach,'stroke="'+ink+'" stroke-width="2"');
+    s+=circle(p[0]-6,p[1]-7,6,"#ffffff77");
+    s+=circle(p[0],p[1],30,"transparent",'id="labBob"');
+    scene.innerHTML=s;
   }
-  function normalDensity(x){
-    var sigma = Math.sqrt(ROWS)/2;
-    return Math.exp(-0.5*Math.pow((x-ROWS/2)/sigma,2))/(sigma*Math.sqrt(2*Math.PI));
+  function drawStock(){
+    var count=Math.min(120,Math.floor(elapsed*20)),s='';
+    function px(i){return 173+i*1.55;}
+    function py(v){return 270-(v-stockMin)/(stockMax-stockMin)*160;}
+    [0,1,2,3].forEach(function(i){s+=line(169,110+i*53,363,110+i*53,ink,1,'opacity=".13"');});
+    s+=line(169,105,169,273,ink,1.5)+line(169,273,367,273,ink,1.5);
+    for(var tick=0;tick<=2;tick++){var value=stockMax*tick/2;s+=label(152,py(value)+4,String(value));}
+    var colors=["#ffffffaa",peach,ink];
+    paths.forEach(function(path,i){var pts=[];for(var k=0;k<=count;k++)pts.push([px(k),py(path[k])]);s+=pathLine(pts,colors[i],i===2?3:2);if(count>0)s+=circle(px(count),py(path[count]),i===2?5:3,colors[i]);});
+    s+=label(252,302,"SIMULATION",'font-size="11" letter-spacing="2" opacity=".65"');
+    if(mathVisible)s+=label(252,91,"σ = "+volInput.value+"%",'font-size="18"');
+    scene.innerHTML=s;
   }
-  function chartScale(){
-    return 86/axisMax;
+  var graphNodes=[[143,185],[206,112],[211,258],[260,168],[284,263],[322,111],[358,225],[368,178]];
+  var graphEdges=[[0,1,4],[0,2,3],[1,3,2],[2,3,5],[2,4,4],[1,5,6],[3,5,2],[3,6,4],[4,6,2],[5,7,3],[6,7,2]];
+  var stations=[[192,132],[319,154],[235,264]],epicenter=[270,202];
+  function nodeName(i){return String.fromCharCode(65+i);}
+  graphEdges.forEach(function(e,i){var option=document.createElement("option");option.value=String(i);option.textContent=nodeName(e[0])+" ↔ "+nodeName(e[1]);roadInput.appendChild(option);});
+  function drawChemical(){
+    var fractions=LabMath.chemical(Number(rateInput.value),elapsed),aCount=Math.round(fractions.a*48);
+    var s=label(252,99,"A → B",'font-size="25"');
+    for(var i=0;i<48;i++){
+      var col=i%8,row=Math.floor(i/8),isA=((i*19)%48)<aCount;
+      s+=circle(168+col*24,134+row*25,8,isA?peach:ink,'stroke="'+ink+'" stroke-width="1.2"');
+    }
+    s+=label(194,291,"A "+Math.round(fractions.a*100)+"%")+label(310,291,"B "+Math.round(fractions.b*100)+"%");
+    s+=label(252,315,elapsed.toFixed(1)+" s",'font-size="12" opacity=".7"');scene.innerHTML=s;
+    svg.setAttribute("aria-description","אחרי "+elapsed.toFixed(1)+" שניות: "+Math.round(fractions.a*100)+" אחוזים A, "+Math.round(fractions.b*100)+" אחוזים B.");
   }
-  function queueBalls(count){
-    for(var i=0;i<count;i++){
-      var ball = makeBall();pending.push(ball);plannedBins[ball.bin]++;
-    }
-    total += count;
-    // Reserve space for the whole requested batch before any ball falls.
-    // A larger batch may widen the labeled axis once, never mid-animation.
-    var peak = Math.max.apply(null,plannedBins.concat([total*normalDensity(5)]));
-    axisMax = Math.max(axisMax,Math.ceil(peak*1.1/25)*25);
-    show();
-  }
-  function land(ball){ bins[ball.bin]++; landed++; }
-  function show(){
-    counter.textContent = total.toLocaleString("he-IL");
-    progress.textContent = "נחתו "+landed.toLocaleString("he-IL")+" מתוך "+total.toLocaleString("he-IL");
-    // This description also exposes the nonvisual result without noisy live announcements.
-    cv.setAttribute("aria-description","נחתו "+landed+" מתוך "+total+" כדורים. מספר הכדורים בתאים, משמאל לימין: "+bins.join(", ")+".");
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    var scale = chartScale();
-    ctx.lineWidth = 1;
-    ctx.font = "12px Arial";ctx.textAlign = "right";
-    for(var tick=0;tick<=2;tick++){
-      var tickValue = axisMax*tick/2, tickY = BASE-tickValue*scale;
-      ctx.fillStyle = IVORY;ctx.fillText(String(tickValue),70,tickY+4);
-      ctx.strokeStyle = "#f2f5ec22";ctx.beginPath();ctx.moveTo(80,tickY);ctx.lineTo(520,tickY);ctx.stroke();
-    }
-    for(var i=0;i<=ROWS;i++){
-      var x = W/2+(i-ROWS/2)*DX;
-      ctx.fillStyle = "#ffffff08";
-      ctx.fillRect(x-DX/2+2,222,DX-4,BASE-222);
-      ctx.fillStyle = ACCENT;
-      var height = bins[i]*scale;
-      ctx.fillRect(x-DX/2+3,BASE-height,DX-6,height);
-      ctx.strokeStyle = "#f2f5ec44";
-      ctx.beginPath();ctx.moveTo(x-DX/2,222);ctx.lineTo(x-DX/2,BASE);ctx.lineTo(x+DX/2,BASE);ctx.stroke();
-      ctx.fillStyle = IVORY;ctx.font = "12px Arial";ctx.textAlign = "center";
-      ctx.fillText(String(i),x,333);
-    }
-    ctx.beginPath();ctx.moveTo(520,222);ctx.lineTo(520,BASE);ctx.stroke();
-    if(landed){
-      ctx.beginPath();
-      for(var j=0;j<=220;j++){
-        var value = -0.5+j/20, curveX = W/2+(value-ROWS/2)*DX;
-        var curveY = BASE-landed*normalDensity(value)*scale;
-        if(j===0)ctx.moveTo(curveX,curveY);else ctx.lineTo(curveX,curveY);
-      }
-      ctx.strokeStyle = "#fff";ctx.lineWidth = 2.5;ctx.stroke();
-    }
-    ctx.fillStyle = "#f2f5ec99";
-    for(var row=0;row<ROWS;row++){
-      for(var col=0;col<=row;col++){
-        ctx.beginPath();ctx.arc(W/2+(col-row/2)*DX,TOP+row*DY,2.7,0,Math.PI*2);ctx.fill();
-      }
-    }
-    ctx.fillStyle = ACCENT;
-    active.forEach(function(ball){
-      var t = ball.age/SEGMENT, segment = Math.floor(t), fraction = t-segment;
-      var a = ball.points[Math.min(segment,ball.points.length-1)];
-      var b = ball.points[segment+1] || {x:a.x,y:BASE-bins[ball.bin]*scale-4};
-      var x = a.x+(b.x-a.x)*fraction;
-      var y = a.y+(b.y-a.y)*fraction;
-      ctx.beginPath();ctx.arc(x,y,3.8,0,Math.PI*2);ctx.fill();
+  function drawRoute(){
+    var blocked=Number(roadInput.value),result=LabMath.shortest(graphNodes,graphEdges,blocked),s='';
+    graphEdges.forEach(function(e,i){
+      var a=graphNodes[e[0]],b=graphNodes[e[1]],chosen=false;
+      for(var j=1;j<result.path.length;j++)if((result.path[j-1]===e[0]&&result.path[j]===e[1])||(result.path[j-1]===e[1]&&result.path[j]===e[0]))chosen=true;
+      s+=line(a[0],a[1],b[0],b[1],i===blocked?"#9f344a":chosen?ink:"#092a3644",chosen?5:2,i===blocked?'stroke-dasharray="4 5"':'');
+      if(i===blocked){var x=(a[0]+b[0])/2,y=(a[1]+b[1])/2;s+=circle(x,y,10,peach)+line(x-4,y-4,x+4,y+4,ink,2)+line(x-4,y+4,x+4,y-4,ink,2);}
+      if(mathVisible&&i!==blocked){var tx=(a[0]+b[0])/2,ty=(a[1]+b[1])/2;s+=circle(tx,ty,9,"#bfc8ff")+label(tx,ty+5,String(e[2]));}
+      s+=line(a[0],a[1],b[0],b[1],"transparent",20,'data-edge="'+i+'" style="cursor:pointer"');
     });
+    graphNodes.forEach(function(p,i){s+=circle(p[0],p[1],i===0||i===7?15:12,i===0?peach:i===7?lime:"#bfc8ff",'stroke="'+ink+'" stroke-width="2"')+label(p[0],p[1]+5,nodeName(i));});
+    scene.innerHTML=s;status.textContent="אורך המסלול הקצר: "+result.cost;svg.setAttribute("aria-description","המסלול הקצר הוא "+result.path.map(nodeName).join(" אל ")+". אורכו "+result.cost+" יחידות.");
   }
-  function startAnimation(){
-    if(!reduced && raf===null && (pending.length || active.length)){
-      lastTime = null;raf = requestAnimationFrame(loop);
-    }
+  function newEpicenter(){epicenter=[235+Math.random()*55,175+Math.random()*45];stationsInput.value="1";document.getElementById("quakeStationsValue").textContent="1 מתוך 3";stationsInput.setAttribute("aria-valuetext","תחנת מדידה אחת");}
+  function drawEarth(){
+    var count=Number(stationsInput.value),colors=[ink,"#435394", "#913b35"],s='';
+    // A schematic surface-location model: radii are exact horizontal distances.
+    for(var i=0;i<count;i++){var p=stations[i],r=LabMath.distance(p,epicenter);s+=circle(p[0],p[1],r,"none",'stroke="'+colors[i]+'" stroke-width="2" opacity=".85"');if(mathVisible){s+=line(p[0],p[1],p[0]+r*.8,p[1]+r*.6,colors[i],1,'stroke-dasharray="4 4"');s+=label(p[0]+r*.4,p[1]+r*.3-5,"r"+(i+1));}}
+    stations.forEach(function(p,i){s+=circle(p[0],p[1],9,i<count?peach:"#ffffff55",'stroke="'+ink+'" stroke-width="1.5"')+label(p[0],p[1]-15,String(i+1));});
+    if(count===3){s+=circle(epicenter[0],epicenter[1],12,"none",'stroke="'+ink+'" stroke-width="1.5"')+circle(epicenter[0],epicenter[1],5,lime,'stroke="'+ink+'" stroke-width="2"');}
+    scene.innerHTML=s;status.textContent=count===1?"תחנה אחת נותנת מרחק. הוסיפו עוד תחנות.":count===2?"שני מעגלים, שתי אפשרויות. הוסיפו תחנה שלישית.":"המוקד נמצא בחיתוך של שלושת המעגלים.";svg.setAttribute("aria-description",status.textContent);
   }
-  function loop(time){
-    raf = null;
-    var delta = lastTime===null ? 0 : Math.min(time-lastTime,50);
-    lastTime = time;launchClock += delta;
-    while(pending.length>0 && launchClock>=INTERVAL){
-      active.push(pending.shift());launchClock-=INTERVAL;
-    }
-    if(!pending.length)launchClock=0;
-    active = active.filter(function(ball){
-      ball.age += delta;
-      if(ball.age>=ball.points.length*SEGMENT){land(ball);return false;}
-      return true;
-    });
-    show();draw();
-    if(pending.length || active.length)raf=requestAnimationFrame(loop);
+  roadInput.addEventListener("change",function(){stop();draw();});
+  stationsInput.addEventListener("input",function(){document.getElementById("quakeStationsValue").textContent=stationsInput.value+" מתוך 3";stationsInput.setAttribute("aria-valuetext",stationsInput.value+" תחנות מדידה");draw();});
+  svg.addEventListener("click",function(e){if(mode==="route"&&e.target.dataset.edge!==undefined){var edge=e.target.dataset.edge;roadInput.value=roadInput.value===edge?"-1":edge;draw();}});
+
+  function draw(){scene.setAttribute("transform",mathVisible?"translate(45 8) scale(.82)":"");if(mode==="pendulum")drawPendulum();else if(mode==="stock")drawStock();else if(mode==="chemical")drawChemical();else if(mode==="route")drawRoute();else drawEarth();}
+  function updatePlay(){
+    var name=mode==="pendulum"?"המטוטלת":mode==="chemical"?"התגובה":"המסלולים";
+    var action=running?"עצירת "+name:(reduced&&mode==="pendulum"?"צעד אחד במטוטלת":mode==="stock"?"הגרלת מסלולים חדשים":mode==="chemical"?"הרצת התגובה מחדש":mode==="route"?"פתיחת כל הדרכים":mode==="earth"?"מוקד רעידה חדש":"הפעלת המטוטלת");
+    play.setAttribute("aria-label",action);play.title=action;
+    play.firstElementChild.textContent=running?"Ⅱ":(["stock","route","earth"].indexOf(mode)>=0||reduced?"↻":"▶");
   }
-  function settle(){
-    active.forEach(land);active=[];
-    pending.forEach(land);pending=[];
-    launchClock=0;show();draw();
+  function cancelFrame(){if(raf!==null)cancelAnimationFrame(raf);raf=null;last=null;}
+  function stop(){running=false;cancelFrame();updatePlay();}
+  function scheduleFrame(){if(running&&!reduced&&visible&&!document.hidden&&raf===null)raf=requestAnimationFrame(frame);}
+  function frame(now){
+    raf=null;var dt=last===null?0:Math.min((now-last)/1000,.035);last=now;
+    if(mode==="pendulum"){
+      var n=Math.max(1,Math.ceil(dt/.008));for(var i=0;i<n;i++)state=LabMath.pendulum(state,Number(lengthInput.value),dt/n,.045);
+      trail.push(bob(state[0]));if(trail.length>110)trail.shift();
+    }else if(mode==="chemical"){elapsed=Math.min(10,elapsed+dt);if(elapsed>=10){stop();status.textContent="עברו 10 שניות. שנו את קצב התגובה ונסו שוב.";}}
+    else{elapsed=Math.min(6,elapsed+dt);if(elapsed>=6){stop();status.textContent="שלושה מסלולים אפשריים. הריצו שוב כדי לגלות אחרים.";}}
+    draw();scheduleFrame();
   }
-  function reset(){
-    if(raf!==null)cancelAnimationFrame(raf);
-    raf=null;lastTime=null;launchClock=INTERVAL;
-    bins=Array(ROWS+1).fill(0);plannedBins=Array(ROWS+1).fill(0);
-    active=[];pending=[];landed=0;total=0;axisMax=25;queueBalls(START);
-    if(reduced)settle();else{show();draw();startAnimation();}
+  function makeStock(){paths=[];for(var i=0;i<3;i++)paths.push(LabMath.stock(Number(volInput.value)/100,Math.random));var values=[100];paths.forEach(function(p){values=values.concat(p);});stockMin=0;stockMax=Math.max(200,Math.ceil(Math.max.apply(null,values)/100)*100);}
+  function prepare(animate){
+    stop();elapsed=0;trail=[];status.textContent="";svg.removeAttribute("aria-description");
+    if(mode==="pendulum")state=[.72,0];
+    if(mode==="stock")makeStock();
+    if(mode==="earth")newEpicenter();
+    if(reduced){
+      if(mode==="chemical")elapsed=10;
+      if(mode==="stock")elapsed=6;
+    }else running=!!animate&&["pendulum","stock","chemical"].indexOf(mode)>=0;
+    draw();updatePlay();scheduleFrame();
   }
-  addBtn.addEventListener("click",function(){
-    queueBalls(ADD);
-    if(reduced)settle();else{draw();startAnimation();}
+  function setMode(next){
+    dragging=false;mode=next;
+    document.querySelectorAll("[data-lab-mode]").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.labMode===mode));});
+    var controls={pendulum:"pendControls",stock:"stockControls",chemical:"chemicalControls",route:"routeControls",earth:"earthControls"};
+    Object.keys(controls).forEach(function(key){document.getElementById(controls[key]).hidden=mode!==key;});
+    document.getElementById("labSvgTitle").textContent=modeInfo[mode].title;document.getElementById("labSvgDesc").textContent=modeInfo[mode].hint+". אפשר לעצור את התנועה בכפתור העצירה ולהפעיל את כל הפקדים במקלדת.";
+    svg.setAttribute("tabindex",mode==="pendulum"?"0":"-1");
+    if(mode==="pendulum")document.getElementById("labSvgDesc").textContent="גררו את הכדור ושחררו. במקלדת: החצים משנים את זווית השחרור, ורווח מפעיל או עוצר. אפשר לשנות את אורך החוט במחוון.";
+    document.getElementById("labSubject").textContent=modeInfo[mode].subject;
+    hint.textContent=modeInfo[mode].hint;document.getElementById("labEquation").textContent=modeInfo[mode].equation;document.getElementById("labMathText").textContent=modeInfo[mode].text;
+    prepare(["pendulum","stock","chemical"].indexOf(mode)>=0);
+  }
+  document.querySelectorAll("[data-lab-mode]").forEach(function(b){b.addEventListener("click",function(){setMode(b.dataset.labMode);});});
+  mathToggle.addEventListener("click",function(){mathVisible=!mathVisible;mathPanel.hidden=!mathVisible;mathToggle.setAttribute("aria-expanded",String(mathVisible));mathToggle.setAttribute("aria-label",mathVisible?"הסתרת המשוואה וההסבר":"איפה המתמטיקה? הצגת המשוואה וההסבר");draw();});
+  play.addEventListener("click",function(){
+    if(running){stop();return;}
+    if(mode==="pendulum"){
+      status.textContent="";
+      if(reduced){for(var i=0;i<120;i++)state=LabMath.pendulum(state,Number(lengthInput.value),1/120,.045);draw();status.textContent="המטוטלת התקדמה בשנייה אחת, ללא אנימציה.";}
+      else{running=true;updatePlay();scheduleFrame();}
+    }else if(mode==="route"){roadInput.value="-1";prepare(false);}
+    else if(mode==="earth"){prepare(false);}
+    else prepare(true);
   });
-  resetBtn.addEventListener("click",reset);
+  function syncInputs(){
+    document.getElementById("pendLengthValue").textContent=Number(lengthInput.value).toFixed(1)+" מ׳";lengthInput.setAttribute("aria-valuetext",lengthInput.value+" מטרים");
+    document.getElementById("reactionRateValue").textContent=Number(rateInput.value).toFixed(1)+" /ש׳";rateInput.setAttribute("aria-valuetext",rateInput.value+" לשנייה");
+    document.getElementById("stockVolatilityValue").textContent=volInput.value+"%";volInput.setAttribute("aria-valuetext",volInput.value+" אחוזים");
+  }
+  [lengthInput,volInput,rateInput].forEach(function(input){input.addEventListener("input",function(){syncInputs();prepare(mode==="pendulum"||mode==="chemical"||mode==="stock");});});
+  svg.addEventListener("keydown",function(e){
+    if(mode!=="pendulum")return;
+    if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();stop();trail=[];state=[Math.max(-1.2,Math.min(1.2,state[0]+(e.key==="ArrowRight"?.1:-.1))),0];draw();status.textContent="זווית שחרור: "+Math.round(state[0]*180/Math.PI)+" מעלות. לחצו רווח להפעלה.";}
+    if(e.key===" "){e.preventDefault();play.click();}
+  });
+  function dragAngle(e){var box=svg.getBoundingClientRect(),x=(e.clientX-box.left)*520/box.width,y=(e.clientY-box.top)*365/box.height;if(mathVisible){x=(x-45)/.82;y=(y-8)/.82;}state=[Math.max(-1.2,Math.min(1.2,Math.atan2(x-252,y-86))),0];draw();}
+  svg.addEventListener("pointerdown",function(e){if(mode!=="pendulum"||e.target.id!=="labBob")return;e.preventDefault();stop();dragging=true;trail=[];status.textContent="";svg.style.touchAction="none";svg.setPointerCapture(e.pointerId);dragAngle(e);});
+  svg.addEventListener("pointermove",function(e){if(dragging)dragAngle(e);});
+  function release(e){if(!dragging)return;dragging=false;svg.style.touchAction="pan-y";if(svg.hasPointerCapture(e.pointerId))svg.releasePointerCapture(e.pointerId);running=!reduced;updatePlay();scheduleFrame();}
+  svg.addEventListener("pointerup",release);svg.addEventListener("pointercancel",release);
   function applyMotion(){
-    root.setAttribute("data-motion",reduced ? "reduced" : "full");
-    btn.setAttribute("aria-pressed",String(reduced));
-    if(raf!==null)cancelAnimationFrame(raf);
-    raf=null;lastTime=null;
-    if(reduced)settle();else startAnimation();
+    root.setAttribute("data-motion",reduced?"reduced":"full");btn.setAttribute("aria-pressed",String(reduced));
+    stop();if(reduced){if(mode==="chemical")elapsed=10;if(mode==="stock")elapsed=6;}
+    else if(mode==="pendulum"){running=true;updatePlay();scheduleFrame();}draw();
   }
-  reset();applyMotion();
-  btn.addEventListener("click",function(){
-    reduced=!reduced;applyMotion();
-    try{localStorage.setItem("edhack-motion",reduced ? "reduced" : "full");}catch(e){}
-  });
+  btn.addEventListener("click",function(){reduced=!reduced;applyMotion();try{localStorage.setItem("edhack-motion",reduced?"reduced":"full");}catch(e){}});
+  document.addEventListener("visibilitychange",function(){if(document.hidden)cancelFrame();else scheduleFrame();});
+  if("IntersectionObserver" in window)new IntersectionObserver(function(entries){visible=entries[0].isIntersecting;if(!visible)cancelFrame();else scheduleFrame();},{threshold:0}).observe(lab);
+  syncInputs();setMode("pendulum");applyMotion();
+
   /* ---------- אפשרויות נגישות ---------- */
   var accessDlg = document.getElementById("accessibilityPanel");
   document.querySelectorAll("[data-open-accessibility]").forEach(function(button){
