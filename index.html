@@ -352,14 +352,90 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 .normal-legend{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:400}
 .normal-legend i{display:block;width:24px;height:2px;background:#fff}
 .galton-progress{margin-top:6px;font-size:.8125rem;color:#f2f5ecd9}
+
+/* EDHACK: mathematical identity and interactive challenge cards. */
+.sigma-e{height:.73em;width:.69em;display:inline-block;vertical-align:-.015em;overflow:visible;flex:none}
+.sigma-e path{fill:none;stroke:currentColor;stroke-width:10;stroke-linecap:square;stroke-linejoin:miter}
+.brand{display:inline-flex;align-items:baseline;gap:0}
+.brand .sigma-e{margin-inline-end:.035em}
+.hero{position:relative;overflow:hidden;padding-block:34px 40px;background-color:var(--deeper);background-image:radial-gradient(ellipse at 16% 25%,#465c8a55,transparent 55%),radial-gradient(#ffffff16 1px,transparent 1.1px);background-size:auto,26px 26px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center}
+.hero-copy{min-width:0}
+.hero .school-brand{margin-bottom:22px}
+.hero h1{font-size:clamp(62px,6.5vw,100px);gap:18px;flex-wrap:nowrap}
+.hero h1 .wordmark{white-space:nowrap;display:inline-flex;align-items:baseline;letter-spacing:-.035em}
+.hero h1 .wordmark .sigma-e{margin-right:.025em}
+.hero h1 .event-year{font-size:.42em;letter-spacing:-.04em}
+.hero .what{font-size:clamp(24px,2.35vw,34px);line-height:1.3}
+.hero .tagline{margin-top:18px;font-size:1.1875rem}
+.hero .pitch{max-width:39em;font-size:1.0625rem;line-height:1.75}
+.hero-art{width:100%;max-width:550px;justify-self:center;pointer-events:none}
+.hero-art svg{display:block;width:100%;height:auto;overflow:visible}
+.challenges{background:var(--paper);color:var(--deep);padding-block:34px 38px}
+.challenges .h2 h2{font-size:clamp(30px,3vw,40px)}
+.challenges .challenge-intro{color:var(--muted);max-width:65em;font-size:1rem;line-height:1.7;margin-bottom:26px}
+.chs{gap:22px;align-items:stretch}
+.ch.flip-card{--tone:#d4e86a;position:relative;padding:0;border:0;background:transparent;border-radius:18px;box-shadow:none;perspective:1400px;min-width:0;color:var(--deeper)}
+.ch.flip-card:nth-child(2){--tone:#f5b19d}
+.ch.flip-card:nth-child(3){--tone:#bfc8ff}
+.card-turn{display:grid;min-height:330px;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.flip-card.is-flipped .card-turn{transform:rotateY(180deg)}
+.card-face{grid-area:1/1;min-width:0;position:relative;padding:27px 28px 78px;background:var(--tone);border:1px solid #092a3622;border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 7px 0 #092a3610,0 14px 30px #092a3609}
+.card-front{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end}
+.card-index{font-size:.875rem;font-weight:600;letter-spacing:.03em}
+.card-front .card-index{position:absolute;inset-block-start:26px;inset-inline-start:28px}
+.card-art{position:absolute;top:19px;left:22px;width:112px;height:94px;opacity:.78;pointer-events:none}
+.ch .card-front h3{margin-top:105px;font-size:clamp(25px,2.25vw,34px);line-height:1.12;max-width:12em;text-wrap:balance}
+.ch .card-front .kind{font-size:1rem;line-height:1.5;font-weight:500;margin-top:12px;max-width:22em;color:var(--deeper)}
+.card-open{position:absolute;inset:0;width:100%;border:0;border-radius:18px;background:transparent;color:var(--deeper);cursor:pointer;text-align:right;font-size:.9375rem;font-weight:600}
+.card-open>span{position:absolute;inset-inline:28px;bottom:22px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #092a3633;padding-top:12px}
+.card-open>span>span{font-size:1.6rem;line-height:1}
+.card-front:has(.card-open:hover){box-shadow:0 10px 0 #092a3616,0 20px 35px #092a3618}
+.card-back{transform:rotateY(180deg);display:flex;flex-direction:column;align-items:flex-start;padding-bottom:24px}
+.ch .card-back h3{font-size:1.5rem;margin-top:12px;line-height:1.2}
+.ch .card-back p.t{color:var(--deeper);font-size:1rem;line-height:1.7;margin-block:12px 22px}
+.card-close{margin-top:auto;border:1px solid #092a3655;border-radius:7px;min-height:44px;padding:7px 14px;font-size:.875rem;font-weight:600;background:#ffffff44;color:var(--deeper);cursor:pointer}
+.challenges .btn-line{color:var(--deep);border-color:#0e3a4a66}
+.challenges .btn-accent{background:var(--deep);color:var(--ivory)}
+.challenges .cta{margin-top:27px}
+html[data-contrast="high"] .ch.flip-card{--tone:#fff}
+html[data-contrast="high"] .card-face{border:2px solid #000;color:#000}
+html[data-contrast="high"] .hero-art{display:none}
+html[data-contrast="high"] .hero .wrap{grid-template-columns:minmax(0,1fr)}
+html[data-text="large"] .hero .wrap{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+html[data-text="large"] .hero h1{font-size:clamp(52px,6.5vw,100px)}
+@media(prefers-reduced-motion:reduce){.card-turn{transition:none}}
+@media(max-width:1100px) and (min-width:761px){.hero .wrap{grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr)}.hero h1{font-size:clamp(52px,6.3vw,72px)}.card-face{padding-inline:22px}.ch .card-front h3{font-size:1.65rem}.card-art{width:90px}.ch .card-back p.t{font-size:.9375rem}}
+@media(max-width:760px){
+  .hero{padding-block:24px 26px}
+  .hero .wrap,html[data-text="large"] .hero .wrap{grid-template-columns:minmax(0,1fr);gap:18px}
+  .hero .school-brand{margin-bottom:22px}
+  .hero h1{font-size:clamp(46px,14.5vw,88px);gap:12px;justify-content:flex-end;flex-wrap:nowrap}
+  .hero h1 .wordmark{width:auto}.hero h1 .event-year{width:auto;font-size:.38em;line-height:1}
+  .hero .what{font-size:1.45rem;margin-top:14px}
+  .hero .tagline{font-size:1.0625rem;margin-top:14px}
+  .hero .pitch{font-size:1rem;line-height:1.7}
+  .hero-art{max-width:280px;margin-block:-5px -8px}
+  .challenges{padding-block:28px 32px}
+  .challenges .challenge-intro{font-size:.9375rem;margin-bottom:22px}
+  .chs{gap:22px}
+  .card-turn{min-height:340px}
+  .ch .card-front h3{font-size:1.875rem}
+  .card-face{padding-inline:24px}
+  .ch .card-back p.t{font-size:1rem}
+  .challenges .cta .btn{flex:1 1 auto}
+}
+@media print{.card-turn,.flip-card.is-flipped .card-turn{display:block;transform:none}.card-face{position:static;transform:none;backface-visibility:visible}.card-open,.card-close{display:none}}
+
 </style>
 </head>
 <body>
+<noscript><style>.card-turn{display:block}.card-back{transform:none;margin-top:12px}.card-open,.card-close{display:none}</style></noscript>
 <a class="skip-link" href="#top">דילוג לתוכן המרכזי</a>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="EDHACK, לראש העמוד">ED<span>HACK</span></a>
+    <a class="brand" href="#top" aria-label="EDHACK, לראש העמוד"><svg class="sigma-e" viewBox="0 0 68 72" aria-hidden="true" focusable="false"><path d="M59 7H10L24 36 10 65H59M24 36H45"/></svg>D<span>HACK</span></a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">תפריט</button>
     <nav class="nav" id="nav" aria-label="ניווט ראשי">
       <a href="#challenges">האתגרים</a>
@@ -376,14 +452,31 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
 
 <section class="hero">
   <div class="wrap">
+    <div class="hero-copy">
     <a class="school-brand" href="https://exact-sciences.tau.ac.il/math/" aria-label="בית הספר למדעי המתמטיקה, אוניברסיטת תל אביב">
       <img src="assets/img/tau-exact-sciences-symbols.png" alt="" width="212" height="72">
       <span class="school-brand-text"><strong>בית הספר למדעי המתמטיקה</strong><span>אוניברסיטת תל אביב</span></span>
     </a>
-    <h1><span class="wordmark">ED<span>HACK</span></span> <span class="event-year">2027</span></h1>
+    <h1 aria-label="EDHACK 2027"><span class="wordmark" aria-hidden="true"><svg class="sigma-e" viewBox="0 0 68 72" aria-hidden="true" focusable="false"><path d="M59 7H10L24 36 10 65H59M24 36H45"/></svg>D<span>HACK</span></span> <span class="event-year" aria-hidden="true">2027</span></h1>
     <p class="what">האקתון להוראת המתמטיקה ושימושיה</p>
     <p class="tagline">הכל מתחיל במתמטיקה.</p>
     <p class="pitch">יומיים לבנות כלים שהופכים את המתמטיקה למעניינת, מובנת ורלוונטית, בכיתה, בתרגול ובכל תחום שנשען עליה: פיזיקה, כימיה, מדעי המחשב ועוד.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 520 365" focusable="false">
+        <defs><linearGradient id="orbFill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#687bc7"/><stop offset="1" stop-color="#bfc8ff"/></linearGradient></defs>
+        <circle cx="252" cy="185" r="150" fill="url(#orbFill)"/>
+        <circle cx="252" cy="185" r="175" fill="none" stroke="#bfc8ff" stroke-opacity=".22"/>
+        <path d="M54 260C124 320 432 306 469 104" fill="none" stroke="#d4e86a" stroke-width="2"/>
+        <circle cx="73" cy="270" r="43" fill="#f5b19d"/>
+        <path d="M55 270H91M73 252V288" stroke="#092a36" stroke-width="5"/>
+        <g fill="none" stroke="#102b49" stroke-width="1.2" opacity=".85"><circle r="38" transform="matrix(0.9400 0.0000 .221 -.76 357.280 185.000)"/><circle r="38" transform="matrix(0.9748 0.1682 .221 -.76 361.183 203.842)"/><circle r="38" transform="matrix(0.9433 0.3250 .221 -.76 357.646 221.400)"/><circle r="38" transform="matrix(0.8474 0.4596 .221 -.76 346.908 236.477)"/><circle r="38" transform="matrix(0.6938 0.5629 .221 -.76 329.703 248.047)"/><circle r="38" transform="matrix(0.4929 0.6279 .221 -.76 307.203 255.319)"/><circle r="38" transform="matrix(0.2584 0.6500 .221 -.76 280.941 257.800)"/><circle r="38" transform="matrix(0.0063 0.6279 .221 -.76 252.706 255.319)"/><circle r="38" transform="matrix(-0.2462 0.5629 .221 -.76 224.423 248.047)"/><circle r="38" transform="matrix(-0.4820 0.4596 .221 -.76 198.020 236.477)"/><circle r="38" transform="matrix(-0.6849 0.3250 .221 -.76 175.295 221.400)"/><circle r="38" transform="matrix(-0.8411 0.1682 .221 -.76 157.798 203.842)"/><circle r="38" transform="matrix(-0.9400 0.0000 .221 -.76 146.720 185.000)"/><circle r="38" transform="matrix(-0.9748 -0.1682 .221 -.76 142.817 166.158)"/><circle r="38" transform="matrix(-0.9433 -0.3250 .221 -.76 146.354 148.600)"/><circle r="38" transform="matrix(-0.8474 -0.4596 .221 -.76 157.092 133.523)"/><circle r="38" transform="matrix(-0.6938 -0.5629 .221 -.76 174.297 121.953)"/><circle r="38" transform="matrix(-0.4929 -0.6279 .221 -.76 196.797 114.681)"/><circle r="38" transform="matrix(-0.2584 -0.6500 .221 -.76 223.059 112.200)"/><circle r="38" transform="matrix(-0.0063 -0.6279 .221 -.76 251.294 114.681)"/><circle r="38" transform="matrix(0.2462 -0.5629 .221 -.76 279.577 121.953)"/><circle r="38" transform="matrix(0.4820 -0.4596 .221 -.76 305.980 133.523)"/><circle r="38" transform="matrix(0.6849 -0.3250 .221 -.76 328.705 148.600)"/><circle r="38" transform="matrix(0.8411 -0.1682 .221 -.76 346.202 166.158)"/><circle r="150.000" transform="matrix(.94 0 .2584 .65 252.000 185.000)"/><circle r="144.909" transform="matrix(.94 0 .2584 .65 256.199 170.560)"/><circle r="131.000" transform="matrix(.94 0 .2584 .65 259.273 159.989)"/><circle r="112.000" transform="matrix(.94 0 .2584 .65 260.398 156.120)"/><circle r="93.000" transform="matrix(.94 0 .2584 .65 259.273 159.989)"/><circle r="79.091" transform="matrix(.94 0 .2584 .65 256.199 170.560)"/><circle r="74.000" transform="matrix(.94 0 .2584 .65 252.000 185.000)"/><circle r="79.091" transform="matrix(.94 0 .2584 .65 247.801 199.440)"/><circle r="93.000" transform="matrix(.94 0 .2584 .65 244.727 210.011)"/><circle r="112.000" transform="matrix(.94 0 .2584 .65 243.602 213.880)"/><circle r="131.000" transform="matrix(.94 0 .2584 .65 244.727 210.011)"/><circle r="144.909" transform="matrix(.94 0 .2584 .65 247.801 199.440)"/></g>
+        <rect x="386" y="35" width="85" height="85" rx="19" fill="#d4e86a" transform="rotate(13 428 77)"/>
+        <g transform="translate(405 52) scale(.65) rotate(13 34 36)" fill="none" stroke="#092a36" stroke-width="8" stroke-linejoin="miter"><path d="M59 7H10L24 36 10 65H59M24 36H45"/></g>
+        <circle cx="439" cy="279" r="7" fill="#d4e86a"/>
+        <path d="M157 36H175M166 27V45" stroke="#f2f5ec" stroke-width="2"/>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -391,28 +484,60 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
   <div class="wrap">
     <div class="h2"><h2>שלושה אתגרים. בוחרים אחד.</h2></div>
     <p class="lead challenge-intro">המתמטיקה במרכז, והתחום פתוח: מתמטיקה עצמה, או המתמטיקה של סטטיסטיקה, מדעי המחשב, פיזיקה, אסטרונומיה, כימיה ומדעי כדור הארץ. כל צוות בוחר אתגר, תחום וקהל יעד.</p>
-    <p class="challenge-guide"><strong>איך בוחרים?</strong> אתגר 1 עונה על השאלה למה זה מעניין, אתגר 2 על איך מבינים את הרעיון, ואתגר 3 על איך מתרגלים עד שמצליחים לבד.</p>
 
     <div class="chs">
-      <article class="ch" id="c1">
-        <div class="num" aria-hidden="true">1</div>
-        <h3>למה צריך את זה?</h3>
-        <p class="kind">מתמטיקה שמעוררת סקרנות, כבר מהשיעור הראשון</p>
-        <p class="t">פעילות או כלי לשיעור שמראים למה הרעיון המתמטי מעניין וחשוב: דרך בעיה אמיתית, חיבור לכימיה, לפיזיקה או למדעי המחשב, או שאלה מתמטית שמסקרנת. משהו שקורה בכיתה ושווה להגיע בשבילו.</p>
+      <article class="ch flip-card" id="c1">
+        <div class="card-turn">
+          <div class="card-face card-front">
+            <span class="card-index">אתגר 1</span>
+            <svg class="card-art" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m60 12 11 30 29 10-29 11-11 29-11-29-29-11 29-10Z"/><circle cx="22" cy="20" r="6"/><path d="M91 76v16M83 84h16"/></svg>
+            <h3 id="c1Title">למה צריך את זה?</h3>
+            <p class="kind">מתמטיקה שמעוררת סקרנות, כבר מהשיעור הראשון</p>
+            <button class="card-open" type="button" aria-expanded="false" aria-controls="c1Details" aria-labelledby="c1Title c1Action"><span id="c1Action">לפרטי האתגר <span aria-hidden="true">↶</span></span></button>
+          </div>
+          <div class="card-face card-back" id="c1Details">
+            <span class="card-index">אתגר 1</span>
+            <h3>למה צריך את זה?</h3>
+            <p class="t">פעילות או כלי לשיעור שמראים למה הרעיון המתמטי מעניין וחשוב: דרך בעיה אמיתית, חיבור לכימיה, לפיזיקה או למדעי המחשב, או שאלה מתמטית שמסקרנת. משהו שקורה בכיתה ושווה להגיע בשבילו.</p>
+            <button type="button" class="card-close">חזרה לכותרת <span aria-hidden="true">↶</span></button>
+          </div>
+        </div>
       </article>
 
-      <article class="ch" id="c2">
-        <div class="num" aria-hidden="true">2</div>
-        <h3>לשחק את המתמטיקה</h3>
-        <p class="kind">משחקים, אומנות ואנימציה שממחישים רעיון מתמטי</p>
-        <p class="t">רעיון מתמטי אחד, שמגלים ומבינים דרך משחק, התנסות או המחשה יצירתית.</p>
+      <article class="ch flip-card" id="c2">
+        <div class="card-turn">
+          <div class="card-face card-front">
+            <span class="card-index">אתגר 2</span>
+            <svg class="card-art" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="18" y="18" width="48" height="48" rx="8" transform="rotate(-12 42 42)"/><circle cx="70" cy="61" r="27"/><path d="m58 53 19 9-19 9Z"/></svg>
+            <h3 id="c2Title">לשחק את המתמטיקה</h3>
+            <p class="kind">משחקים, אומנות ואנימציה שממחישים רעיון מתמטי</p>
+            <button class="card-open" type="button" aria-expanded="false" aria-controls="c2Details" aria-labelledby="c2Title c2Action"><span id="c2Action">לפרטי האתגר <span aria-hidden="true">↶</span></span></button>
+          </div>
+          <div class="card-face card-back" id="c2Details">
+            <span class="card-index">אתגר 2</span>
+            <h3>לשחק את המתמטיקה</h3>
+            <p class="t">רעיון מתמטי אחד, שמגלים ומבינים דרך משחק, התנסות או המחשה יצירתית.</p>
+            <button type="button" class="card-close">חזרה לכותרת <span aria-hidden="true">↶</span></button>
+          </div>
+        </div>
       </article>
 
-      <article class="ch" id="c3">
-        <div class="num" aria-hidden="true">3</div>
-        <h3>נתקעתי. מה עכשיו?</h3>
-        <p class="kind">תרגול עצמי עם רמזים, בכיתה ובקורס מקוון</p>
-        <p class="t">פלטפורמה לתרגול חומר חדש, בצורה מותאמת ומלמדת שמגבירה את המוטיבציה לתרגל. כשמישהו נתקע, הכלי מתייחס למה שכבר ניסה ונותן רמז שמשאיר בידיו את הצעד הבא.</p>
+      <article class="ch flip-card" id="c3">
+        <div class="card-turn">
+          <div class="card-face card-front">
+            <span class="card-index">אתגר 3</span>
+            <svg class="card-art" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 83h28V59h27V35h28"/><circle cx="26" cy="74" r="7"/><circle cx="55" cy="49" r="7"/><path d="m81 19 9 9 18-20"/></svg>
+            <h3 id="c3Title">נתקעתי. מה עכשיו?</h3>
+            <p class="kind">תרגול עצמי עם רמזים, בכיתה ובקורס מקוון</p>
+            <button class="card-open" type="button" aria-expanded="false" aria-controls="c3Details" aria-labelledby="c3Title c3Action"><span id="c3Action">לפרטי האתגר <span aria-hidden="true">↶</span></span></button>
+          </div>
+          <div class="card-face card-back" id="c3Details">
+            <span class="card-index">אתגר 3</span>
+            <h3>נתקעתי. מה עכשיו?</h3>
+            <p class="t">פלטפורמה לתרגול חומר חדש, בצורה מותאמת ומלמדת שמגבירה את המוטיבציה לתרגל. כשמישהו נתקע, הכלי מתייחס למה שכבר ניסה ונותן רמז שמשאיר בידיו את הצעד הבא.</p>
+            <button type="button" class="card-close">חזרה לכותרת <span aria-hidden="true">↶</span></button>
+          </div>
+        </div>
       </article>
     </div>
     <div class="cta">
@@ -641,6 +766,25 @@ html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-mo
   });
   nav.addEventListener("click", function(e){
     if(e.target.tagName === "A"){ nav.classList.remove("show"); mb.setAttribute("aria-expanded","false"); mb.textContent = "תפריט"; }
+  });
+
+  /* Challenge cards: click, touch and keyboard share the same disclosure. */
+  document.querySelectorAll(".flip-card").forEach(function(card){
+    var front = card.querySelector(".card-front"), back = card.querySelector(".card-back");
+    var open = card.querySelector(".card-open"), close = card.querySelector(".card-close");
+    back.inert=true;back.setAttribute("aria-hidden","true");
+    function flip(on){
+      card.classList.toggle("is-flipped",on);
+      open.setAttribute("aria-expanded",String(on));
+      front.inert=on;front.setAttribute("aria-hidden",String(on));
+      back.inert=!on;back.setAttribute("aria-hidden",String(!on));
+      (on ? close : open).focus({preventScroll:true});
+    }
+    open.addEventListener("click",function(){flip(true);});
+    close.addEventListener("click",function(){flip(false);});
+    card.addEventListener("keydown",function(e){
+      if(e.key==="Escape" && card.classList.contains("is-flipped")){e.preventDefault();flip(false);}
+    });
   });
 
   /* Galton board: ten independent Bernoulli choices per ball. */
